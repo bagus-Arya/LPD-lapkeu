@@ -83,6 +83,34 @@ Route::group(['middleware' => 'guest'], function () {
 
 });
 
+
+Route::group(['middleware' => ['auth','admincheck'],'prefix'=>'admin/dashboard','as'=>'admin.'],function(){
+	Route::get('/', function (){
+		return 'Admin';
+	});
+});
+
+
+Route::group(['middleware' => ['auth','ketuacheck'],'prefix'=>'ketua/dashboard','as'=>'ketua.'],function(){
+	Route::get('/', function (){
+		return 'ketua';
+	});
+});
+
+Route::group(['middleware' => ['auth','sekretarischeck'],'prefix'=>'sekretaris/dashboard','as'=>'sekretasis.'],function(){
+	Route::get('/', function (){
+		return 'sekretaris';
+	});
+});
+
+Route::group(['middleware' => ['auth','bendaharacheck'],'prefix'=>'bendahara/dashboard','as'=>'bendahara.'],function(){
+	Route::get('/', function (){
+		return 'bendahara';
+	});
+});
+
+
+
 Route::get('/login', function () {
     return view('session/login-session');
 })->name('login');
