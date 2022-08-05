@@ -23,6 +23,21 @@ class SessionsController extends Controller
         if(Auth::attempt($attributes))
         {
             session()->regenerate();
+            if(auth()->user()->user_type=="admin"){
+                return redirect()->intended(route('admin.'));
+            }
+            else if(auth()->user()->user_type=="ketua"){
+                return redirect()->intended(route('ketua.'));
+            }
+            else if(auth()->user()->user_type=="bendahara"){
+                return redirect()->intended(route('bendahara.'));
+            }
+            else{
+                return redirect()->intended(route('sekretaris.'));
+            }
+            // else{
+            //     return redirect()->intended('dashboard/banjar/'.auth()->user()->banjar_id.'/profilebanjar');
+            // }
             return redirect('dashboard')->with(['success'=>'You are logged in.']);
         }
         else{
