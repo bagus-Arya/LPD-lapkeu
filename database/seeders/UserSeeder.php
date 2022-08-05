@@ -24,8 +24,6 @@ class UserSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
-<<<<<<< HEAD
-=======
         DB::table('users')->insert([
             'name' => 'ketua',
             'user_type'=>'ketua',
@@ -52,15 +50,5 @@ class UserSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
->>>>>>> 8267781529a27c10a783dbd89e301f3eb699e8c9
-        // DB::table('users')->insert([
-        //     'id' => 1,
-        //     'name' => 'Ni Putu Rahma',
-        //     'username' => 'rahma123',
-        //     'email' => 'rahma@softui.com',
-        //     'password' => Hash::make('rahma'),
-        //     'created_at' => now(),
-        //     'updated_at' => now()
-        // ]);
     }
 }
