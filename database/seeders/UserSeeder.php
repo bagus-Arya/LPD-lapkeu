@@ -24,14 +24,14 @@ class UserSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now()
         ]);
-        DB::table('users')->insert([
-            'id' => 1,
-            'name' => 'Ni Putu Rahma',
-            'username' => 'rahma123',
-            'email' => 'rahma@softui.com',
-            'password' => Hash::make('rahma'),
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+        // DB::table('users')->insert([
+        //     'id' => 1,
+        //     'name' => 'Ni Putu Rahma',
+        //     'username' => 'rahma123',
+        //     'email' => 'rahma@softui.com',
+        //     'password' => Hash::make('rahma'),
+        //     'created_at' => now(),
+        //     'updated_at' => now()
+        // ]);
     }
 }

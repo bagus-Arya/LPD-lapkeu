@@ -28,7 +28,23 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
-
+	
+	// Laporan
+	Route::group(['prefix' => 'laporan'], function () {
+		Route::get('neraca', function () {
+			return view('laporan/neraca');
+		})->name('necara');
+		Route::get('laba-rugi', function () {
+			return view('laporan/laba-rugi');
+		})->name('laba.rugi');
+	});
+	
+	// Kas
+	Route::group(['prefix' => 'communities'], function () {
+		Route::get('', 'UserController@index')->name('community.user.index');
+		Route::get('/view/{community_id}', 'UserController@view')->name('community.user.view');
+	});
+	//////////
 	Route::get('billing', function () {
 		return view('billing');
 	})->name('billing');
