@@ -3,8 +3,8 @@
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="align-items-center d-flex m-0 navbar-brand text-wrap" href="{{ route('dashboard') }}">
-        <img src="../assets/img/curved-images/lpdlogo.png" class="navbar-brand-img h-100" alt="...">
-        <span class="ms-3 font-weight-bold">{{__('common.lpd_sistem')}}</span>
+      <img src="../assets/img/curved-images/lpdlogo.png" class="navbar-brand-img h-100" alt="...">
+      <span class="ms-3 font-weight-bold">{{__('common.lpd_sistem')}}</span>
     </a>
   </div>
   <hr class="horizontal dark mt-0">
@@ -127,7 +127,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('common.kas')}}</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('#') ? 'active' : '') }} " href="{{ url('#') }}">
+          <a class="nav-link {{ (Request::is('penerimaan-kas') ? 'active' : '') }} " href="{{ url('penerimaan-kas') }}">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>office</title>
@@ -147,9 +147,9 @@
           </a>
         </li>
         <li class="nav-item pb-2">
-          <a class="nav-link {{ (Request::is('#') ? 'active' : '') }}" href="{{ url('#') }}">
+          <a class="nav-link {{ (Request::is('pengeluaran-kas') ? 'active' : '') }}" href="{{ url('pengeluaran-kas') }}">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center text-dark {{ (Request::is('#') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
+                <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center {{ (Request::is('pengeluaran-kas') ? 'text-white' : 'text-dark') }} " aria-hidden="true"></i>
               </div>
               <span class="nav-link-text ms-1">{{__('common.pengeluaran_kas')}}</span>
           </a>
@@ -160,7 +160,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('common.beban')}}</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('tables') ? 'active' : '') }}" href="{{ url('tables') }}">
+          <a class="nav-link {{ (Request::is('beban-beban') ? 'active' : '') }}" href="{{ url('beban-beban') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>office</title>
@@ -185,7 +185,7 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">{{__('common.validasi')}}</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('profile') ? 'active' : '') }}" href="{{ url('profile') }}">
+          <a class="nav-link {{ (Request::is('validasi-penerimaan-kas') ? 'active' : '') }}" href="{{ url('validasi-penerimaan-kas') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>customer-support</title>
@@ -206,7 +206,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('profile') ? 'active' : '') }}" href="{{ url('profile') }}">
+          <a class="nav-link {{ (Request::is('validasi-pengeluaran-kas') ? 'active' : '') }}" href="{{ url('validasi-pengeluaran-kas') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>customer-support</title>
@@ -227,7 +227,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ (Request::is('profile') ? 'active' : '') }}" href="{{ url('profile') }}">
+          <a class="nav-link {{ (Request::is('validasi-beban-beban') ? 'active' : '') }}" href="{{ url('validasi-beban-beban') }}">
             <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                 <title>customer-support</title>

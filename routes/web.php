@@ -40,10 +40,29 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 	
 	// Kas
-	Route::group(['prefix' => 'communities'], function () {
-		Route::get('', 'UserController@index')->name('community.user.index');
-		Route::get('/view/{community_id}', 'UserController@view')->name('community.user.view');
-	});
+	Route::get('penerimaan-kas', function () {
+		return view('kas/penerimaan-kas');
+	})->name('penerimaan.kas');
+	Route::get('pengeluaran-kas', function () {
+		return view('kas/pengeluaran-kas');
+	})->name('pengeluaran.kas');
+	
+	// Beban - Beban
+	Route::get('beban-beban', function () {
+		return view('beban/beban-beban');
+	})->name('pengeluaran.kas');
+
+	// Validasi
+	Route::get('validasi-penerimaan-kas', function () {
+		return view('validasi/v-penerimaan-kas');
+	})->name('validasi.penerimaan.kas');
+	Route::get('validasi-pengeluaran-kas', function () {
+		return view('validasi/v-pengeluaran-kas');
+	})->name('validasi.pengeluaran.kas');
+	Route::get('validasi-beban-beban', function () {
+		return view('validasi/v-beban-beban');
+	})->name('validasi.beban');
+
 	//////////
 	Route::get('billing', function () {
 		return view('billing');
