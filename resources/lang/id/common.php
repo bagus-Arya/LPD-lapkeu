@@ -23,6 +23,8 @@ return [
     'perubahan_modal' => 'Perubahan Modal',
     'neraca' => 'Neraca',
     'profile' => 'Profil',
+    'list_user' => 'List User',
     'user_management' => 'User',
+    'user_managements' => 'Managemen User',
 
 ];
