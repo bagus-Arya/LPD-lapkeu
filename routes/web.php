@@ -26,19 +26,34 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
 	Route::get('dashboard', function () {
-		return view('dashboard');
+		// return view('dashboard');
+		return view('dashboard-lpd');
 	})->name('dashboard');
 	
 	// Laporan
 	Route::group(['prefix' => 'laporan'], function () {
-		Route::get('neraca', function () {
-			return view('laporan/neraca');
-		})->name('necara');
+		Route::get('neraca-percobaan', function () {
+			return view('laporan/neraca-percobaan');
+		})->name('neraca.percobaan');
+		Route::get('arus-kas', function () {
+			return view('laporan/arus-kas');
+		})->name('arus.kas');
 		Route::get('laba-rugi', function () {
 			return view('laporan/laba-rugi');
 		})->name('laba.rugi');
+		Route::get('perubahan-modal', function () {
+			return view('laporan/perubahan-modal');
+		})->name('perubahan.modal');
+		Route::get('neraca', function () {
+			return view('laporan/neraca');
+		})->name('necara');
 	});
 	
+	// Kas
+	Route::get('akun', function () {
+		return view('akun/akun-page');
+	})->name('akun.page');
+
 	// Kas
 	Route::get('penerimaan-kas', function () {
 		return view('kas/penerimaan-kas');
@@ -72,29 +87,29 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('profile');
 	})->name('profile');
 
-	Route::get('rtl', function () {
-		return view('rtl');
-	})->name('rtl');
+	// Route::get('rtl', function () {
+	// 	return view('rtl');
+	// })->name('rtl');
 
-	Route::get('user-management', function () {
-		return view('laravel-examples/user-management');
-	})->name('user-management');
+	Route::get('user-management',
+		[InfoUserController::class, 'viewAllUser']
+	)->name('user-management');
 
 	Route::get('tables', function () {
 		return view('tables');
 	})->name('tables');
 
-    Route::get('virtual-reality', function () {
-		return view('virtual-reality');
-	})->name('virtual-reality');
+    // Route::get('virtual-reality', function () {
+	// 	return view('virtual-reality');
+	// })->name('virtual-reality');
 
-    Route::get('static-sign-in', function () {
-		return view('static-sign-in');
-	})->name('sign-in');
+    // Route::get('static-sign-in', function () {
+	// 	return view('static-sign-in');
+	// })->name('sign-in');
 
-    Route::get('static-sign-up', function () {
-		return view('static-sign-up');
-	})->name('sign-up');
+    // Route::get('static-sign-up', function () {
+	// 	return view('static-sign-up');
+	// })->name('sign-up');
 
     Route::get('/logout', [SessionsController::class, 'destroy']);
 	Route::get('/user-profile', [InfoUserController::class, 'create']);
@@ -128,19 +143,19 @@ Route::group(['middleware' => ['auth','admincheck'],'prefix'=>'admin/dashboard',
 
 Route::group(['middleware' => ['auth','ketuacheck'],'prefix'=>'ketua/dashboard','as'=>'ketua.'],function(){
 	Route::get('/', function (){
-		return view('dashboard');
+		return view('dashboard-lpd');
 	});
 });
 
 Route::group(['middleware' => ['auth','sekretarischeck'],'prefix'=>'sekretaris/dashboard','as'=>'sekretaris.'],function(){
 	Route::get('/', function (){
-		return view('dashboard');
+		return view('dashboard-lpd');
 	});
 });
 
 Route::group(['middleware' => ['auth','bendaharacheck'],'prefix'=>'bendahara/dashboard','as'=>'bendahara.'],function(){
 	Route::get('/', function (){
-		return view('dashboard');
+		return view('dashboard-lpd');
 	});
 });
 

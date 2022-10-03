@@ -5,5 +5,5 @@ use Illuminate\Http\Request;
 
 interface UserRepositoryInterface
 {
-    public function getAllUserPaginated($request, $limit = 10, $offset = 0);
+    public function getAllUserPaginated();
 }
