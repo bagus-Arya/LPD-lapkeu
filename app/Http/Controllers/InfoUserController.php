@@ -7,13 +7,28 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
+use App\Contracts\UserRepositoryInterface;
 
 class InfoUserController extends Controller
 {
+    private $userRepository;
+
+    public function __construct(
+        UserRepositoryInterface $userRepository
+        )
+    {
+        $this->userRepository = $userRepository;
+    }
 
     public function create()
     {
         return view('laravel-examples/user-profile');
+    }
+
+    public function viewAllUser()
+    {
+        $alluser =  $this->userRepository->getAllUserPaginated();
+        return view('laravel-examples/user-management',['alluser' => $alluser]);
     }
 
     public function store(Request $request)

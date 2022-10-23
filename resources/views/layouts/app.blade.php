@@ -18,7 +18,7 @@
 @if (\Request::is('rtl'))
   <html dir="rtl" lang="ar">
 @else
-  <html lang="en" >
+  <html lang="id" >
 @endif
 
 <head>

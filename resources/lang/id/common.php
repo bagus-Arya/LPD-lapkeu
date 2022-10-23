@@ -8,8 +8,8 @@ return [
     'ingat_saya' => 'Ingat Saya',
     'masuk' => 'Masuk',
     'dashboard' => 'Dashboard',
-    'pengeluaran_kas' => 'Penerimaan Kas',
-    'penerimaan_kas' => 'Pengeluaran Kas',
+    'penerimaan_kas' => 'Penerimaan Kas',
+    'pengeluaran_kas' => 'Pengeluaran Kas',
     'kas' => 'Kas',
     'beban' => 'Beban',
     'beban_beban' => 'Beban - Beban',
@@ -23,6 +23,8 @@ return [
     'perubahan_modal' => 'Perubahan Modal',
     'neraca' => 'Neraca',
     'profile' => 'Profil',
+    'list_user' => 'List User',
     'user_management' => 'User',
+    'user_managements' => 'Managemen User',
 
 ];
