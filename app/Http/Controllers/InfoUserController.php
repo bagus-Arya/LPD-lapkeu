@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use App\Contracts\UserRepositoryInterface;
+use Illuminate\Support\Facades\Validator;
 
 class InfoUserController extends Controller
 {
@@ -35,38 +36,21 @@ class InfoUserController extends Controller
     {
 
         $attributes = request()->validate([
-            'name' => ['required', 'max:50'],
-            'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore(Auth::user()->id)],
-            'phone'     => ['max:50'],
-            'location' => ['max:70'],
-            'about_me'    => ['max:150'],
-        ]);
-        if($request->get('email') != Auth::user()->email)
-        {
-            if(env('IS_DEMO') && Auth::user()->id == 1)
-            {
-                return redirect()->back()->withErrors(['msg2' => 'You are in a demo version, you can\'t change the email address.']);
-                
-            }
-            
-        }
-        else{
-            $attribute = request()->validate([
-                'email' => ['required', 'email', 'max:50', Rule::unique('users')->ignore(Auth::user()->id)],
-            ]);
-        }
-        
-        
-        User::where('id',Auth::user()->id)
-        ->update([
-            'name'    => $attributes['name'],
-            'email' => $attribute['email'],
-            'phone'     => $attributes['phone'],
-            'location' => $attributes['location'],
-            'about_me'    => $attributes["about_me"],
+            'fullname' => ['required', 'max:50'],
+            'username' => ['required', 'max:50', 'max:50', Rule::unique('users','username')],
+            'email' => ['required', 'email', 'max:50', Rule::unique('users','email')],
+            'password' => 'required|min:8',
+            'password_confirmation' => 'required|min:8|same:password',
+            'phone'     => ['required','max:50'],
+            'user_type'=>[
+                'required',
+                'string',
+                Rule::in(['ketua','bendahara','sekretaris'])
+            ]
         ]);
 
-
-        return redirect('/user-profile')->with('success','Profile updated successfully');
+        User::create($attributes);
+        return redirect()->back()->with('successTambahUser','User Berhasil Ditambahkan');
+        // return redirect('/user-profile')->with('success','Profile updated successfully');
     }
 }

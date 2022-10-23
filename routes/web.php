@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
 		})->name('necara');
 	});
 	
-	// Kas
+	// Akun
 	Route::get('akun', function () {
 		return view('akun/akun-page');
 	})->name('akun.page');
@@ -91,9 +91,13 @@ Route::group(['middleware' => 'auth'], function () {
 	// 	return view('rtl');
 	// })->name('rtl');
 
+	// User Mananement add and info
 	Route::get('user-management',
 		[InfoUserController::class, 'viewAllUser']
 	)->name('user-management');
+	Route::post('user-management-store',
+		[InfoUserController::class, 'store']
+	)->name('user-management-store');
 
 	Route::get('tables', function () {
 		return view('tables');
