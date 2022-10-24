@@ -6,6 +6,7 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AkunController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -50,9 +51,15 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 	
 	// Akun
-	Route::get('akun', function () {
-		return view('akun/akun-page');
-	})->name('akun.page');
+	Route::get('akun',[AkunController::class,'index'])->name('akun');
+	Route::post('akun',[AkunController::class,'store'])->name('akun-store');
+	Route::delete('akun/{akun}',[AkunController::class,'destroy'])->name('akun-delete');
+	// Route::post('akun', function () {
+	// 	return view('akun/akun-page');
+	// })->name('akun-store');
+	// Route::delete('akun', function () {
+	// 	return view('akun/akun-page');
+	// })->name('akun-delete');
 
 	// Kas
 	Route::get('penerimaan-kas', function () {
@@ -98,6 +105,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('user-management-store',
 		[InfoUserController::class, 'store']
 	)->name('user-management-store');
+	Route::delete('user-management-delete/{user}',
+		[InfoUserController::class, 'destroy']
+	)->name('user-management-delete');
 
 	Route::get('tables', function () {
 		return view('tables');
