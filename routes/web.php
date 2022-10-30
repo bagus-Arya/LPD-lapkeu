@@ -54,6 +54,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('akun',[AkunController::class,'index'])->name('akun');
 	Route::post('akun',[AkunController::class,'store'])->name('akun-store');
 	Route::delete('akun/{akun}',[AkunController::class,'destroy'])->name('akun-delete');
+	Route::put('akun/{akun}',[AkunController::class,'update'])->name('akun-update');
+	
 	// Route::post('akun', function () {
 	// 	return view('akun/akun-page');
 	// })->name('akun-store');
