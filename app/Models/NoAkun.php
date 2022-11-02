@@ -13,4 +13,9 @@ class NoAkun extends Model
         'akun_types',
         'no_akun',
     ];
+
+    // public function transaksi()
+    // {
+    //     return $this->belongsTo(Transaksi::class, 'no_akun', 'no_akun_id');
+    // }
 }

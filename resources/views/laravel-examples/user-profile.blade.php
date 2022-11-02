@@ -1,31 +1,119 @@
 @extends('layouts.user_type.auth')
 
 @section('content')
+    <!-- Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-normal" id="changePasswordLabel">Ubah Password</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('user-management-updatepassword') }}" method="POST" role="form text-left">
+                    @csrf
+                    @method('put')
+                    @if($errors->updatePassword->any())
+                        <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
+                            <span class="alert-text text-white">
+                            {{$errors->updatePassword->first()}}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    @endif
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="oldpassword" class="form-control-label">{{ __('Password Lama') }}</label>
+                                <div class="@error('oldpassword','updatePassword')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="text" placeholder="Masukan Password Lama" id="oldpassword" name="oldpassword">
+                                        @error('oldpassword','updatePassword')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="newpassword" class="form-control-label">{{ __('Password Baru') }}</label>
+                                <div class="@error('newpassword','updatePassword')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="text" placeholder="Masukan Password Baru" id="newpassword" name="newpassword">
+                                        @error('newpassword','updatePassword')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="newpassword_confirmation" class="form-control-label">{{ __('Password Baru Konfirmasi') }}</label>
+                                <div class="@error('newpassword_confirmation','updatePassword')border border-danger rounded-3 @enderror">
+                                    <input class="form-control" type="text" placeholder="Masukan Ulang Password Baru" id="newpassword_confirmation" name="newpassword_confirmation">
+                                        @error('newpassword_confirmation','updatePassword')
+                                            <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                        @enderror
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn bg-gradient-dark">Update Password</button>
+                </div>
+            </form>
+            </div>
+        </div>
 
+    </div>
 <div>
     <div class="container-fluid">
         <div class="page-header min-height-300 border-radius-xl mt-4" style="background-image: url('../assets/img/curved-images/curved0.jpg'); background-position-y: 50%;">
             <span class="mask bg-gradient-primary opacity-6"></span>
         </div>
         <div class="card card-body blur shadow-blur mx-4 mt-n6">
-            <div class="row gx-4">
+            @if (session('successUpdatePassword'))
+                <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                    <span class="alert-text text-white">
+                    {{ session('successUpdatePassword') }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        <i class="fa fa-close" aria-hidden="true"></i>
+                    </button>
+                </div>
+            @endif
+             {{-- <div class="row">
+                <div class="col-12">
+                    <div class="border border-danger rounded-3">
+                         <p class="text-danger text-xs mt-2">Photo Invalid</p>
+                    </div>
+                </div>
+            </div>    --}}
+            <div class="row gx-4 border border-danger rounded-3 pt-2">
+                
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="../assets/img/bruce-mars.jpg" alt="..." class="w-100 border-radius-lg shadow-sm">
-                        <a href="javascript:;" class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2">
-                            <i class="fa fa-pen top-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Image"></i>
-                        </a>
+                        <img src="{{ auth()->user()->photo }}" onerror="this.onerror=null;this.src='{{ asset('assets/img/profile.png') }}';" alt="..." class="w-100 border-radius-lg shadow-sm">
+                            <label for="file-upload" class="btn btn-sm btn-icon-only bg-gradient-light position-absolute bottom-0 end-0 mb-n2 me-n2">
+                                <i class="fa fa-pen top-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Image"></i>
+                            </label>
+                            <input id="file-upload" type="file" style="display: none"/>
                     </div>
                 </div>
                 <div class="col-auto my-auto">
                     <div class="h-100">
                         <h5 class="mb-1">
-                            {{ auth()->user()->name }}
+                            {{ auth()->user()->fullname }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
                             {{ auth()->user()->user_type }}
                         </p>
                     </div>
+                </div>
+                <div class="col-12">
+                    <p class="text-danger text-xs mt-2">Photo Invalid</p>
                 </div>
                 <!-- <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
                     <div class="nav-wrapper position-relative end-0">
@@ -128,7 +216,7 @@
                             <div class="form-group">
                                 <label for="user-name" class="form-control-label">{{ __('Full Name') }}</label>
                                 <div class="@error('user.name')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="{{ auth()->user()->name }}" type="text" placeholder="Name" id="user-name" name="name">
+                                    <input class="form-control" value="{{ auth()->user()->fullname }}" type="text" placeholder="Name" id="user-name" name="name">
                                         @error('name')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -137,9 +225,9 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label">{{ __('Email') }}</label>
+                                <label for="user-email" class="form-control-label">{{ __('User Name') }}</label>
                                 <div class="@error('email')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" value="{{ auth()->user()->email }}" type="email" placeholder="@example.com" id="user-email" name="email">
+                                    <input class="form-control" value="{{ auth()->user()->username }}" type="email" placeholder="@example.com" id="user-email" name="email">
                                         @error('email')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -150,9 +238,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.phone" class="form-control-label">{{ __('Phone') }}</label>
+                                <label for="user.phone" class="form-control-label">{{ __('Email') }}</label>
                                 <div class="@error('user.phone')border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="tel" placeholder="40770888444" id="number" name="phone" value="{{ auth()->user()->phone }}">
+                                    <input class="form-control" type="tel" placeholder="40770888444" id="number" name="phone" value="{{ auth()->user()->email }}">
                                         @error('phone')
                                             <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                         @enderror
@@ -161,20 +249,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user.location" class="form-control-label">{{ __('Location') }}</label>
+                                <label for="user.location" class="form-control-label">{{ __('phone') }}</label>
                                 <div class="@error('user.location') border border-danger rounded-3 @enderror">
-                                    <input class="form-control" type="text" placeholder="Location" id="name" name="location" value="{{ auth()->user()->location }}">
+                                    <input class="form-control" type="text" placeholder="Location" id="name" name="location" value="{{ auth()->user()->phone }}">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="about">{{ 'About Me' }}</label>
-                        <div class="@error('user.about')border border-danger rounded-3 @enderror">
-                            <textarea class="form-control" id="about" rows="3" placeholder="Say something about yourself" name="about_me">{{ auth()->user()->about_me }}</textarea>
-                        </div>
-                    </div>
                     <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-light btn-md mt-4 mb-4" data-bs-toggle="modal" data-bs-target="#changePasswordModal" >Ubah Password</button>
+                        <div class="mx-2"></div>
                         <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
                     </div>
                 </form>
@@ -182,4 +266,14 @@
         </div>
     </div>
 </div>
+
+ 
+@if($errors->updatePassword->any())
+<script>
+    $(document).ready(function(){
+        $('#changePasswordModal').modal('show');
+    });
+</script>
+@endif
+
 @endsection
