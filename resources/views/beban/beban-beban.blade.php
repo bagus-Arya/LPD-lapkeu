@@ -33,7 +33,7 @@
                             
                             <select class="form-control" id="no_akun_id" name="no_akun_id">
                                 @foreach ($Akuns as $akun)
-                                    <option value="{{ $akun->id }}">{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
+                                    <option value="{{ $akun->id }}" {{ old('no_akun_id')==$akun->id ? 'selected' : '' }}>{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
                                 @endforeach
                             </select>
                             </div>
@@ -46,7 +46,7 @@
                           <div class="form-group">
                               <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
                               <div class="@error('jumlah','addBeban')border border-danger rounded-3 @enderror">
-                                  <input class="form-control" type="text" placeholder="Masukan Jumlah" id="jumlah" name="jumlah">
+                                  <input class="form-control" type="text" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ old('jumlah') }}">
                                   @error('jumlah','addBeban')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
@@ -57,13 +57,30 @@
                         <div class="form-group">
                             <label for="keterangan">{{ __('Keterangan') }}</label>
                             <div class="@error('keterangan','addBeban')border border-danger rounded-3 @enderror">
-                                <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan"></textarea>
+                                <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ old('keterangan') }}</textarea>
                                 @error('keterangan','addBeban')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
                       </div>
+                      @if (auth()->user()->user_type=='bendahara')
+                      <div class="col-md-12">
+                        <div class="@error('konfirmasi','addBeban')border border-danger rounded-3 @enderror">
+                            <div class="form-check">
+                                <input type="hidden" name="konfirmasi" value="0" />
+                                <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ old('konfirmasi')==1 ?  'checked="checked"' : '' }}>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                Konfirmasi Transaksi
+                                </label>
+                                @error('konfirmasi','addBeban')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                      @endif
+
                   </div>
           </div>
               <div class="modal-footer">
@@ -205,6 +222,22 @@
                                                         </div>
                                                     </div>
                                                     </div>
+                                                    @if (auth()->user()->user_type=='bendahara')
+                                                    <div class="col-md-12">
+                                                        <div class="@if($errors->updateBeban->has('konfirmasi') && session('updateId')==$beban->id)border border-danger rounded-3 @endif">
+                                                            <div class="form-check">
+                                                                <input type="hidden" name="konfirmasi" value="0" />
+                                                                <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ $beban->konfirmasi==1 ?  'checked="checked"' : '' }}>
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                Konfirmasi Transaksi
+                                                                </label>
+                                                                @if($errors->updateBeban->has('keterangan') && session('updateId')==$beban->id)
+                                                                    <p class="text-danger text-xs mt-2">{{$errors->updateBeban->first('konfirmasi')}}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
                                                 </div>
                                         </div>
                                             <div class="modal-footer">
