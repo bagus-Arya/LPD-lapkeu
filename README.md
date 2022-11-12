@@ -20,6 +20,8 @@ Installations :
     - edit_user
 - logout
 
+hanya bendahara yang bisa input data akun dan lain lain
+
 ## Bendahara :
 - logout
 
