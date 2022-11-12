@@ -53,4 +53,11 @@ class InfoUserController extends Controller
         return redirect()->back()->with('successTambahUser','User Berhasil Ditambahkan');
         // return redirect('/user-profile')->with('success','Profile updated successfully');
     }
+
+    public function destroy(User $user,Request $request)
+    {
+        $user->delete();
+        return redirect()->back()->with('successDeleteUser','User Berhasil Dihapus');
+        // return redirect('/user-profile')->with('success','Profile updated successfully');
+    }
 }

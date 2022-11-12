@@ -160,6 +160,15 @@
                             </button>
                         </div>
                     @endif
+            @if(session('successDeleteUser'))
+                    <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                        <span class="alert-text text-white">
+                        {{ session('successDeleteUser') }}</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                            <i class="fa fa-close" aria-hidden="true"></i>
+                        </button>
+                    </div>
+            @endif
             <div class="card mb-4 mx-4">
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
@@ -186,6 +195,9 @@
                                         Nama Lengkap
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Email
+                                    </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Role
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -208,14 +220,22 @@
                                         <p class="text-xs font-weight-bold mb-0">{{ $user->fullname }}</p>
                                     </td>
                                     <td class="text-center">
+                                        <p class="text-xs font-weight-bold mb-0">{{ $user->email }}</p>
+                                    </td>
+                                    <td class="text-center">
                                         <p class="text-xs font-weight-bold mb-0">{{ $user->user_type }}</p>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
+                                        {{-- <a href="#" class="mx-3" data-bs-toggle="tooltip" data-bs-original-title="Edit user">
                                             <i class="fas fa-user-edit text-secondary"></i>
-                                        </a>
+                                        </a> --}}
                                         <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                            {{-- {{ route('user-management-delete', ['user' => $user->id]) }} --}}
+                                            <form action="{{ route('user-management-delete', ['user' => $user->id]) }}" method="POST">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn p-0 m-0 btn-link"><i class="cursor-pointer fas fa-trash fa-lg text-secondary"></i></button>
+                                            </form> 
                                         </span>
                                     </td>
                                 </tr>

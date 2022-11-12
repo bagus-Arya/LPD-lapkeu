@@ -18,6 +18,7 @@ class CreateTransaksisTable extends Migration
             $table->foreignId('no_akun_id')->constrained('no_akuns')->onUpdate('cascade')->onDelete('cascade');
             $table->text('keterangan');
             $table->integer('jumlah');
+            $table->boolean('konfirmasi')->default(false);
             $table->timestamps();
         });
     }

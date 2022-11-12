@@ -6,6 +6,8 @@ use App\Http\Controllers\InfoUserController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\BebanController;
+use App\Http\Controllers\AkunController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -50,9 +52,17 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 	
 	// Akun
-	Route::get('akun', function () {
-		return view('akun/akun-page');
-	})->name('akun.page');
+	Route::get('akun',[AkunController::class,'index'])->name('akun');
+	Route::post('akun',[AkunController::class,'store'])->name('akun-store');
+	Route::delete('akun/{akun}',[AkunController::class,'destroy'])->name('akun-delete');
+	Route::put('akun/{akun}',[AkunController::class,'update'])->name('akun-update');
+	
+	// Route::post('akun', function () {
+	// 	return view('akun/akun-page');
+	// })->name('akun-store');
+	// Route::delete('akun', function () {
+	// 	return view('akun/akun-page');
+	// })->name('akun-delete');
 
 	// Kas
 	Route::get('penerimaan-kas', function () {
@@ -63,9 +73,10 @@ Route::group(['middleware' => 'auth'], function () {
 	})->name('pengeluaran.kas');
 	
 	// Beban - Beban
-	Route::get('beban-beban', function () {
-		return view('beban/beban-beban');
-	})->name('pengeluaran.kas');
+	Route::get('beban-beban',[BebanController::class,'index'])->name('beban');
+	Route::post('beban-beban-store',[BebanController::class,'store'])->name('beban-store');
+	Route::put('beban-beban-update/{transaksi}',[BebanController::class,'update'])->name('beban-update');
+	Route::delete('beban-beban-destroy/{transaksi}',[BebanController::class,'destroy'])->name('beban-destroy');
 
 	// Validasi
 	Route::get('validasi-penerimaan-kas', function () {
@@ -98,6 +109,15 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('user-management-store',
 		[InfoUserController::class, 'store']
 	)->name('user-management-store');
+	Route::delete('user-management-delete/{user}',
+		[InfoUserController::class, 'destroy']
+	)->name('user-management-delete');
+	Route::put('user-management-update/{user}',
+		[InfoUserController::class, 'update']
+	)->name('user-management-update');
+	Route::put('user-management-updatepassword',
+		[ChangePasswordController::class, 'update']
+	)->name('user-management-updatepassword');
 
 	Route::get('tables', function () {
 		return view('tables');
