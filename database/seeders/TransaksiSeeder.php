@@ -20,8 +20,8 @@ class TransaksiSeeder extends Seeder
             'no_akun'=>201
         ]);
         DB::table('no_akuns')->insert([
-            'nama_akun'=>'pemasukan',
-            'akun_types'=>'pemasukan',
+            'nama_akun'=>'penerimaan',
+            'akun_types'=>'penerimaan',
             'no_akun'=>202
         ]);
         DB::table('no_akuns')->insert([
