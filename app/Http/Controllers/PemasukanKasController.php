@@ -11,11 +11,11 @@ use App\Models\NoAkun;
 class PemasukanKasController extends Controller
 {
     public function index(Request $request){
-        $Pengeluarans=Transaksi::whereHas('akun',function($query){
-            return $query->where('akun_types','pengeluaran');
+        $Pemasukans=Transaksi::whereHas('akun',function($query){
+            return $query->where('akun_types','pemasukan');
         })->with('akun')->orderBy('created_at', 'desc')->get();
         $Akuns=NoAkun::where('akun_types','pemasukan')->get();
-        return view('kas/penerimaan-kas',compact('Pengeluarans','Akuns'));
+        return view('kas/penerimaan-kas',compact('Pemasukans','Akuns'));
     }
 
     public function store(Request $request){
@@ -39,7 +39,7 @@ class PemasukanKasController extends Controller
                     'required',
                     'integer',
                     Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'pengeluaran');
+                        return $query->where('akun_types', 'pemasukan');
                     })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
@@ -50,15 +50,15 @@ class PemasukanKasController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                    ->withErrors($validator,'addPengeluaran')
+                    ->withErrors($validator,'addPenerimaan')
                     ->withInput();
         }
 
         
         // Retrieve the validated input...
-        $validated = $validator->validateWithBag('addPengeluaran');
+        $validated = $validator->validateWithBag('addPenerimaan');
         Transaksi::create($validated);
-        return redirect()->back()->with('successTambahPengeluaran','Pemasukan Berhasil Ditambahkan');
+        return redirect()->back()->with('successTambahpemasukan','Pemasukan Berhasil Ditambahkan');
     }
 
     public function update(Transaksi $transaksi,Request $request){
@@ -95,21 +95,21 @@ class PemasukanKasController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                    ->withErrors($validator,'updatePengeluaran')
+                    ->withErrors($validator,'updatepemasukan')
                     ->with('updateId',$transaksi->id)
                     ->withInput();
         }
 
         
         // Retrieve the validated input...
-        $validated = $validator->validateWithBag('updatePengeluaran');
+        $validated = $validator->validateWithBag('updatepemasukan');
         $transaksi->update($validated);
-        return redirect()->back()->with('successUpdatePengeluaran','Pemasukan Berhasil Diupdate');
+        return redirect()->back()->with('successUpdatepemasukan','Pemasukan Berhasil Diupdate');
     }
 
     public function destroy(Transaksi $transaksi,Request $request){
         $transaksi->delete();
-        return redirect()->back()->with('successDeletePengeluaran','Pemasukan Berhasil Dihapus');
+        return redirect()->back()->with('successDeletepemasukan','Pemasukan Berhasil Dihapus');
     }
 }
 

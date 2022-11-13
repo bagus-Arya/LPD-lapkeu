@@ -4,11 +4,11 @@
 
 <div>
   <!-- Modal -->
-  <div class="modal fade" id="addPengeluaranModal" tabindex="-1" role="dialog" aria-labelledby="addPengeluaranLabel" aria-hidden="true">
+  <div class="modal fade" id="addPenerimaanModal" tabindex="-1" role="dialog" aria-labelledby="addPenerimaanLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title font-weight-normal" id="addPengeluaranLabel">Tambah Penerimaan Kas</h5>
+              <h5 class="modal-title font-weight-normal" id="addPenerimaanLabel">Tambah Penerimaan Kas</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
               </button>
@@ -16,10 +16,10 @@
           <div class="modal-body">
               <form action="{{ route('penerimaan-store.kas') }}" method="POST" role="form text-left">
                   @csrf
-                    @if($errors->addPengeluaran->any())
+                    @if($errors->addPenerimaan->any())
                         <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
                             <span class="alert-text text-white">
-                            {{$errors->addPengeluaran->first()}}</span>
+                            {{$errors->addPenerimaan->first()}}</span>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                                 <i class="fa fa-close" aria-hidden="true"></i>
                             </button>
@@ -29,7 +29,7 @@
                       <div class="col-md-12">
                         <div class="form-group">
                             <label for="no_akun_id">Role</label>
-                            <div class="@error('no_akun_id','addPengeluaran')border border-danger rounded-3 @enderror">
+                            <div class="@error('no_akun_id','addPenerimaan')border border-danger rounded-3 @enderror">
                             
                             <select class="form-control" id="no_akun_id" name="no_akun_id">
                                 @foreach ($Akuns as $akun)
@@ -37,7 +37,7 @@
                                 @endforeach
                             </select>
                             </div>
-                            @error('no_akun_id','addPengeluaran')
+                            @error('no_akun_id','addPenerimaan')
                                 <p class="text-danger text-xs mt-2">{{ $message }}</p>
                             @enderror
                         </div>
@@ -45,9 +45,9 @@
                       <div class="col-md-12">
                           <div class="form-group">
                               <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
-                              <div class="@error('jumlah','addPengeluaran')border border-danger rounded-3 @enderror">
+                              <div class="@error('jumlah','addPenerimaan')border border-danger rounded-3 @enderror">
                                   <input class="form-control" type="text" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ old('jumlah') }}">
-                                  @error('jumlah','addPengeluaran')
+                                  @error('jumlah','addPenerimaan')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                     @enderror
                               </div>
@@ -56,9 +56,9 @@
                       <div class="col-md-12">
                         <div class="form-group">
                             <label for="keterangan">{{ __('Keterangan') }}</label>
-                            <div class="@error('keterangan','addPengeluaran')border border-danger rounded-3 @enderror">
+                            <div class="@error('keterangan','addPenerimaan')border border-danger rounded-3 @enderror">
                                 <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ old('keterangan') }}</textarea>
-                                @error('keterangan','addPengeluaran')
+                                @error('keterangan','addPenerimaan')
                                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -66,14 +66,14 @@
                       </div>
                       @if (auth()->user()->user_type=='bendahara')
                       <div class="col-md-12">
-                        <div class="@error('konfirmasi','addPengeluaran')border border-danger rounded-3 @enderror">
+                        <div class="@error('konfirmasi','addPenerimaan')border border-danger rounded-3 @enderror">
                             <div class="form-check">
                                 <input type="hidden" name="konfirmasi" value="0" />
                                 <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ old('konfirmasi')==1 ?  'checked="checked"' : '' }}>
                                 <label class="form-check-label" for="flexCheckDefault">
                                 Konfirmasi Transaksi
                                 </label>
-                                @error('konfirmasi','addPengeluaran')
+                                @error('konfirmasi','addPenerimaan')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -94,28 +94,28 @@
 
   <div class="row">
       <div class="col-12">
-        @if(session('successTambahPengeluaran'))
+        @if(session('successTambahpemasukan'))
             <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
                 <span class="alert-text text-white">
-                {{ session('successTambahPengeluaran') }}</span>
+                {{ session('successTambahpemasukan') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     <i class="fa fa-close" aria-hidden="true"></i>
                 </button>
             </div>
         @endif
-        @if(session('successUpdatePengeluaran'))
+        @if(session('successUpdatepemasukan'))
             <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
                 <span class="alert-text text-white">
-                {{ session('successUpdatePengeluaran') }}</span>
+                {{ session('successUpdatepemasukan') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     <i class="fa fa-close" aria-hidden="true"></i>
                 </button>
             </div>
         @endif
-        @if(session('successDeletePengeluaran'))
+        @if(session('successDeletepemasukan'))
             <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
                 <span class="alert-text text-white">
-                {{ session('successDeletePengeluaran') }}</span>
+                {{ session('successDeletepemasukan') }}</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
                     <i class="fa fa-close" aria-hidden="true"></i>
                 </button>
@@ -127,7 +127,7 @@
                       <div>
                           <h5 class="mb-0">{{__('penerimaan.all_penerimaan')}}</h5>
                       </div>
-                      <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPengeluaranModal">
+                      <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
                           +&nbsp; {{__('penerimaan.add_penerimaan')}}
                       </button>
                   </div>
@@ -158,7 +158,7 @@
                               </tr>
                           </thead>
                           <tbody>
-                            @foreach ($Pengeluarans as $pengeluaran)
+                            @foreach ($Pemasukans as $pengeluaran)
                                 
                             <!-- Modal -->
                                 <div class="modal fade" id="updatePengeluaranModal{{ $pengeluaran->id }}" tabindex="-1" role="dialog" aria-labelledby="updatePengeluaranLabel{{ $pengeluaran->id }}" aria-hidden="true">
@@ -287,10 +287,10 @@
       </div>
   </div>
 </div>
-@if($errors->addPengeluaran->any())
+@if($errors->addPenerimaan->any())
 <script>
     $(document).ready(function(){
-        $('#addPengeluaranModal').modal('show');
+        $('#addPenerimaanModal').modal('show');
     });
 </script>
 @endif
