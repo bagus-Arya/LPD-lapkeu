@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\Transaksi;
 use App\Models\NoAkun;
 
-class BebanController extends Controller
+class PengeluaranKasController extends Controller
 {
     public function index(Request $request){
-        $Bebans=Transaksi::whereHas('akun',function($query){
-            return $query->where('akun_types','beban');
+        $Pengeluarans=Transaksi::whereHas('akun',function($query){
+            return $query->where('akun_types','pengeluaran');
         })->with('akun')->orderBy('created_at', 'desc')->get();
-        $Akuns=NoAkun::where('akun_types','beban')->get();
-        return view('beban/beban-beban',compact('Bebans','Akuns'));
+        $Akuns=NoAkun::where('akun_types','pengeluaran')->get();
+        return view('kas/pengeluaran-kas',compact('Pengeluarans','Akuns'));
     }
 
     public function store(Request $request){
@@ -25,7 +25,7 @@ class BebanController extends Controller
                     'required',
                     'integer',
                     Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
+                        return $query->where('akun_types', 'pengeluaran');
                     })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
@@ -39,7 +39,7 @@ class BebanController extends Controller
                     'required',
                     'integer',
                     Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
+                        return $query->where('akun_types', 'pengeluaran');
                     })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
@@ -50,25 +50,26 @@ class BebanController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                    ->withErrors($validator,'addBeban')
+                    ->withErrors($validator,'addPengeluaran')
                     ->withInput();
         }
 
         
         // Retrieve the validated input...
-        $validated = $validator->validateWithBag('addBeban');
+        $validated = $validator->validateWithBag('addPengeluaran');
         Transaksi::create($validated);
-        return redirect()->back()->with('successTambahBeban','Beban Berhasil Ditambahkan');
+        return redirect()->back()->with('successTambahPengeluaran','Pengeluaran Berhasil Ditambahkan');
     }
 
     public function update(Transaksi $transaksi,Request $request){
+        
         if($request->user()->user_type!='bendahara'){
             $validator = Validator::make($request->all(), [
                 'no_akun_id' => [
                     'required',
                     'integer',
                     Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
+                        return $query->where('akun_types', 'pengeluaran');
                     })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
@@ -82,7 +83,7 @@ class BebanController extends Controller
                     'required',
                     'integer',
                     Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
+                        return $query->where('akun_types', 'pengeluaran');
                     })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
@@ -95,20 +96,20 @@ class BebanController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()
-                    ->withErrors($validator,'updateBeban')
+                    ->withErrors($validator,'updatePengeluaran')
                     ->with('updateId',$transaksi->id)
                     ->withInput();
         }
 
         
         // Retrieve the validated input...
-        $validated = $validator->validateWithBag('updateBeban');
+        $validated = $validator->validateWithBag('updatePengeluaran');
         $transaksi->update($validated);
-        return redirect()->back()->with('successUpdateBeban','Beban Berhasil Diupdate');
+        return redirect()->back()->with('successUpdatePengeluaran','Pengeluaran Berhasil Diupdate');
     }
 
     public function destroy(Transaksi $transaksi,Request $request){
         $transaksi->delete();
-        return redirect()->back()->with('successDeleteBeban','Beban Berhasil Dihapus');
+        return redirect()->back()->with('successDeletePengeluaran','Pengeluaran Berhasil Dihapus');
     }
 }

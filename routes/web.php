@@ -7,7 +7,10 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ResetController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BebanController;
+use App\Http\Controllers\PengeluaranKasController;
+use App\Http\Controllers\PemasukanKasController;
 use App\Http\Controllers\AkunController;
+use App\Http\Controllers\ChangeProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -65,12 +68,18 @@ Route::group(['middleware' => 'auth'], function () {
 	// })->name('akun-delete');
 
 	// Kas
-	Route::get('penerimaan-kas', function () {
-		return view('kas/penerimaan-kas');
-	})->name('penerimaan.kas');
-	Route::get('pengeluaran-kas', function () {
-		return view('kas/pengeluaran-kas');
-	})->name('pengeluaran.kas');
+	// Route::get('penerimaan-kas', function () {
+	// 	return view('kas/penerimaan-kas');
+	// })->name('penerimaan.kas');
+	Route::get('pengeluaran-kas', [PengeluaranKasController::class,'index'])->name('pengeluaran.kas');
+	Route::post('pengeluaran-kas', [PengeluaranKasController::class,'store'])->name('pengeluaran-store.kas');
+	Route::put('pengeluaran-kas/{transaksi}', [PengeluaranKasController::class,'update'])->name('pengeluaran-update.kas');
+	Route::delete('pengeluaran-kas/{transaksi}', [PengeluaranKasController::class,'destroy'])->name('pengeluaran-destroy.kas');
+
+	Route::get('penerimaan-kas', [PemasukanKasController::class,'index'])->name('penerimaan.kas');
+	Route::post('penerimaan-kas', [PemasukanKasController::class,'store'])->name('penerimaan-store.kas');
+	Route::put('penerimaan-kas/{transaksi}', [PemasukanKasController::class,'update'])->name('penerimaan-update.kas');
+	Route::delete('penerimaan-kas/{transaksi}', [PemasukanKasController::class,'destroy'])->name('penerimaan-destroy.kas');
 	
 	// Beban - Beban
 	Route::get('beban-beban',[BebanController::class,'index'])->name('beban');
@@ -79,24 +88,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::delete('beban-beban-destroy/{transaksi}',[BebanController::class,'destroy'])->name('beban-destroy');
 
 	// Validasi
-	Route::get('validasi-penerimaan-kas', function () {
-		return view('validasi/v-penerimaan-kas');
-	})->name('validasi.penerimaan.kas');
-	Route::get('validasi-pengeluaran-kas', function () {
-		return view('validasi/v-pengeluaran-kas');
-	})->name('validasi.pengeluaran.kas');
-	Route::get('validasi-beban-beban', function () {
-		return view('validasi/v-beban-beban');
-	})->name('validasi.beban');
+	Route::get('validasi-penerimaan-kas',  [PemasukanKasController::class,'index'])->name('validasi.penerimaan.kas');
+	Route::get('validasi-pengeluaran-kas', [PengeluaranKasController::class,'index'])->name('validasi.pengeluaran.kas');
+	Route::get('validasi-beban-beban', [BebanController::class,'index'])->name('validasi.beban');
 
 	//////////
 	Route::get('billing', function () {
 		return view('billing');
 	})->name('billing');
-
-	Route::get('profile', function () {
-		return view('profile');
-	})->name('profile');
 
 	// Route::get('rtl', function () {
 	// 	return view('rtl');
@@ -118,6 +117,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('user-management-updatepassword',
 		[ChangePasswordController::class, 'update']
 	)->name('user-management-updatepassword');
+	Route::get('profile', function () {
+		return view('profile');
+	})->name('profile');
+	Route::put('profile',
+		[ChangeProfileController::class,'update']
+	)->name('profile-update');
 
 	Route::get('tables', function () {
 		return view('tables');

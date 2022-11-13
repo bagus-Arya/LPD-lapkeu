@@ -2,203 +2,305 @@
 
 @section('content')
 
-  <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>Penerimaan Kas</h6>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                      <th class="text-secondary opacity-7"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                            <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Executive</p>
-                        <p class="text-xs text-secondary mb-0">Projects</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user4">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Michael Levi</h6>
-                            <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Richard Gran</h6>
-                            <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Executive</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user6">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                            <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+<div>
+  <!-- Modal -->
+  <div class="modal fade" id="addPengeluaranModal" tabindex="-1" role="dialog" aria-labelledby="addPengeluaranLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title font-weight-normal" id="addPengeluaranLabel">Tambah Penerimaan Kas</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
           </div>
-        </div>
+          <div class="modal-body">
+              <form action="{{ route('penerimaan-store.kas') }}" method="POST" role="form text-left">
+                  @csrf
+                    @if($errors->addPengeluaran->any())
+                        <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
+                            <span class="alert-text text-white">
+                            {{$errors->addPengeluaran->first()}}</span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-close" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    @endif
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="no_akun_id">Role</label>
+                            <div class="@error('no_akun_id','addPengeluaran')border border-danger rounded-3 @enderror">
+                            
+                            <select class="form-control" id="no_akun_id" name="no_akun_id">
+                                @foreach ($Akuns as $akun)
+                                    <option value="{{ $akun->id }}" {{ old('no_akun_id')==$akun->id ? 'selected' : '' }}>{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
+                                @endforeach
+                            </select>
+                            </div>
+                            @error('no_akun_id','addPengeluaran')
+                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                          <div class="form-group">
+                              <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
+                              <div class="@error('jumlah','addPengeluaran')border border-danger rounded-3 @enderror">
+                                  <input class="form-control" type="text" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ old('jumlah') }}">
+                                  @error('jumlah','addPengeluaran')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                    @enderror
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="keterangan">{{ __('Keterangan') }}</label>
+                            <div class="@error('keterangan','addPengeluaran')border border-danger rounded-3 @enderror">
+                                <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ old('keterangan') }}</textarea>
+                                @error('keterangan','addPengeluaran')
+                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                      </div>
+                      @if (auth()->user()->user_type=='bendahara')
+                      <div class="col-md-12">
+                        <div class="@error('konfirmasi','addPengeluaran')border border-danger rounded-3 @enderror">
+                            <div class="form-check">
+                                <input type="hidden" name="konfirmasi" value="0" />
+                                <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ old('konfirmasi')==1 ?  'checked="checked"' : '' }}>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                Konfirmasi Transaksi
+                                </label>
+                                @error('konfirmasi','addPengeluaran')
+                                    <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                      @endif
+
+                  </div>
+          </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+              </div>
+          </form>
+          </div>
       </div>
-    </div>
-  </main>
+  </div>
+
+  <div class="row">
+      <div class="col-12">
+        @if(session('successTambahPengeluaran'))
+            <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                <span class="alert-text text-white">
+                {{ session('successTambahPengeluaran') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+        @endif
+        @if(session('successUpdatePengeluaran'))
+            <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                <span class="alert-text text-white">
+                {{ session('successUpdatePengeluaran') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+        @endif
+        @if(session('successDeletePengeluaran'))
+            <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                <span class="alert-text text-white">
+                {{ session('successDeletePengeluaran') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+        @endif
+          <div class="card mb-4 mx-4">
+              <div class="card-header pb-0">
+                  <div class="d-flex flex-row justify-content-between">
+                      <div>
+                          <h5 class="mb-0">{{__('penerimaan.all_penerimaan')}}</h5>
+                      </div>
+                      <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPengeluaranModal">
+                          +&nbsp; {{__('penerimaan.add_penerimaan')}}
+                      </button>
+                  </div>
+              </div>
+              <div class="card-body px-0 pt-0 pb-2">
+                  <div class="table-responsive p-0">
+                      <table class="table align-items-center mb-0">
+                          <thead>
+                              <tr>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                      Nomor Akun
+                                  </th>
+                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Jumlah
+                                        </th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                      Keterangan
+                                  </th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Status
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Input Date
+                                </th>
+                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                      Action
+                                  </th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($Pengeluarans as $pengeluaran)
+                                
+                            <!-- Modal -->
+                                <div class="modal fade" id="updatePengeluaranModal{{ $pengeluaran->id }}" tabindex="-1" role="dialog" aria-labelledby="updatePengeluaranLabel{{ $pengeluaran->id }}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title font-weight-normal" id="updatePengeluaranLabel{{ $pengeluaran->id }}">Update Penerimaan Kas</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{ route('penerimaan-update.kas',['transaksi' => $pengeluaran->id]) }}" method="POST" role="form text-left">
+                                                @csrf
+                                                @method('put')
+                                                @if($errors->updatePengeluaran->any() && session('updateId')==$pengeluaran->id)
+                                                    <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
+                                                        <span class="alert-text text-white">
+                                                        {{$errors->updatePengeluaran->first()}}</span>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                            <i class="fa fa-close" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                @endif
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="no_akun_id">Role</label>
+                                                            <div class="@if($errors->updatePengeluaran->has('no_akun_id') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                            
+                                                            <select class="form-control" id="no_akun_id" name="no_akun_id">
+                                                                @foreach ($Akuns as $akun)
+                                                                    <option value="{{ $akun->id }}" {{ $akun->id==$pengeluaran->no_akun_id ? 'selected' : '' }}>{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            </div>
+                                                            @if($errors->updatePengeluaran->has('no_akun_id') && session('updateId')==$pengeluaran->id)
+                                                                <p class="text-danger text-xs mt-2">{{$errors->updatePengeluaran->first('no_akun_id')}}</p>
+                                                                @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
+                                                            <div class="@if($errors->updatePengeluaran->has('jumlah') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                <input class="form-control" type="number" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ $pengeluaran->jumlah }}">
+                                                                @if($errors->updatePengeluaran->has('jumlah') && session('updateId')==$pengeluaran->id)
+                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePengeluaran->first('jumlah')}}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="keterangan">{{ __('Keterangan') }}</label>
+                                                        <div class="@if($errors->updatePengeluaran->has('keterangan') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                            <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ $pengeluaran->keterangan }}</textarea>
+                                                            @if($errors->updatePengeluaran->has('keterangan') && session('updateId')==$pengeluaran->id)
+                                                                <p class="text-danger text-xs mt-2">{{$errors->updatePengeluaran->first('keterangan')}}</p>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    @if (auth()->user()->user_type=='bendahara')
+                                                    <div class="col-md-12">
+                                                        <div class="@if($errors->updatePengeluaran->has('konfirmasi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                            <div class="form-check">
+                                                                <input type="hidden" name="konfirmasi" value="0" />
+                                                                <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ $pengeluaran->konfirmasi==1 ?  'checked="checked"' : '' }}>
+                                                                <label class="form-check-label" for="flexCheckDefault">
+                                                                Konfirmasi Transaksi
+                                                                </label>
+                                                                @if($errors->updatePengeluaran->has('keterangan') && session('updateId')==$pengeluaran->id)
+                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePengeluaran->first('konfirmasi')}}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+                                                </div>
+                                        </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>    
+
+                              <tr>
+                                  <td class="text-center">
+                                      <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->akun->no_akun }} - {{ $pengeluaran->akun->nama_akun }}</p>
+                                  </td>
+                                  <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->jumlah }} </p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->keterangan }}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0 {{ $pengeluaran->konfirmasi==1 ? 'text-success': 'text-danger' }}">{{ $pengeluaran->konfirmasi==1 ? 'Accepted': 'Not Accepted' }}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d M Y')}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <button type="button" class="btn p-0 m-0 btn-link" data-bs-toggle="modal" data-bs-target="#updatePengeluaranModal{{ $pengeluaran->id }}">
+                                        <i class="fas fa-user-edit fa-lg text-secondary"></i>
+                                    </button>
+                                    <span>
+                                        <form style="display: inline" action="{{ route('penerimaan-destroy.kas',['transaksi' => $pengeluaran->id]) }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn p-0 m-0 btn-link"><i class="cursor-pointer fas fa-trash fa-lg text-secondary"></i></button>
+                                        </form> 
+                                    </span>
+                                </td>
+                              </tr>
+                            @endforeach
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+@if($errors->addPengeluaran->any())
+<script>
+    $(document).ready(function(){
+        $('#addPengeluaranModal').modal('show');
+    });
+</script>
+@endif
+
+@if($errors->updatePengeluaran->any())
+<script>
+    $(document).ready(function(){
+        $('#updatePengeluaranModal{{ session('updateId') }}').modal('show');
+    });
+</script>
+@endif
   
 @endsection
