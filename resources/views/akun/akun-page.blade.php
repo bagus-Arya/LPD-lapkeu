@@ -57,7 +57,7 @@
                                 <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
                                 <select class="form-control" id="akun_types" name="akun_types">
                                     <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option>
-                                    <option value="pemasukan" @if($errors->addAkun->any()) {{ old('akun_types')=='pemasukan' ? 'selected' : ''  }} @endif>Pemasukan</option>
+                                    <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option>
                                     <option value="beban" @if($errors->addAkun->any()) {{ old('akun_types')=='beban' ? 'selected' : ''  }} @endif>beban</option>
                                 </select>
                                 </div>
@@ -225,7 +225,7 @@
                                                             <div class="@if($errors->updateAkun->has('akun_types') && session('updateId')==$no_akun->id)border border-danger rounded-3 @endif">
                                                             <select class="form-control" id="akun_types" name="akun_types">
                                                                 <option value="pengeluaran" {{ $no_akun->akun_types=='pengeluaran' ? 'selected' : '' }} >Pengeluaran</option>
-                                                                <option value="pemasukan" {{ $no_akun->akun_types=='pemasukan' ? 'selected' : ''  }} >Pemasukan</option>
+                                                                <option value="penerimaan" {{ $no_akun->akun_types=='penerimaan' ? 'selected' : ''  }} >Pemasukan</option>
                                                                 <option value="beban" {{ $no_akun->akun_types=='beban' ? 'selected' : ''  }} >beban</option>
                                                             </select>
                                                             </div>

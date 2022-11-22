@@ -4,6 +4,8 @@
 Note for Sistem Informasi Laporan Keuangan :
 > write here
 
+[No Akun][https://www.jurnal.id/id/blog/mempelajari-klasifikasi-sistem-kode-akuntansi-chart-of-account/]
+
 Installations :
 > write here
 ```
