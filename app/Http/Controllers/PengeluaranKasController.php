@@ -14,7 +14,8 @@ class PengeluaranKasController extends Controller
         $Pengeluarans=Transaksi::whereHas('akun',function($query){
             return $query->where('akun_types','pengeluaran');
         })->with('akun')->orderBy('created_at', 'desc')->get();
-        $Akuns=NoAkun::where('akun_types','pengeluaran')->get();
+        // $Akuns=NoAkun::where('akun_types','pengeluaran')->get();
+        $Akuns=NoAkun::all();
         return view('kas/pengeluaran-kas',compact('Pengeluarans','Akuns'));
     }
 
@@ -30,6 +31,12 @@ class PengeluaranKasController extends Controller
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
+                'tgl_transaksi'=>['required'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','pemasukan','beban'])
+                ]
                 // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -44,6 +51,7 @@ class PengeluaranKasController extends Controller
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
+                'tgl_transaksi'=>['required'],
                 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -74,6 +82,12 @@ class PengeluaranKasController extends Controller
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
+                'tgl_transaksi'=>['required'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','pemasukan','beban'])
+                ]
                 // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -88,6 +102,7 @@ class PengeluaranKasController extends Controller
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
+                'tgl_transaksi'=>['required'],
                 'konfirmasi'=>['nullable','boolean']
             ]);
         }

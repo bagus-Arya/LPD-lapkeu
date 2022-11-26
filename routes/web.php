@@ -9,6 +9,7 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BebanController;
 use App\Http\Controllers\PengeluaranKasController;
 use App\Http\Controllers\PemasukanKasController;
+use App\Http\Controllers\NeracaPercobaanController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\ChangeProfileController;
 use Illuminate\Http\Request;
@@ -37,9 +38,8 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	// Laporan
 	Route::group(['prefix' => 'laporan'], function () {
-		Route::get('neraca-percobaan', function () {
-			return view('laporan/neraca-percobaan');
-		})->name('neraca.percobaan');
+		Route::get('neraca-percobaan', [NeracaPercobaanController::class,'index'])->name('neraca.percobaan');
+
 		Route::get('arus-kas', function () {
 			return view('laporan/arus-kas');
 		})->name('arus.kas');
@@ -56,21 +56,7 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	// Akun
 	Route::get('akun',[AkunController::class,'index'])->name('akun');
-	Route::post('akun',[AkunController::class,'store'])->name('akun-store');
-	Route::delete('akun/{akun}',[AkunController::class,'destroy'])->name('akun-delete');
-	Route::put('akun/{akun}',[AkunController::class,'update'])->name('akun-update');
-	
-	// Route::post('akun', function () {
-	// 	return view('akun/akun-page');
-	// })->name('akun-store');
-	// Route::delete('akun', function () {
-	// 	return view('akun/akun-page');
-	// })->name('akun-delete');
 
-	// Kas
-	// Route::get('penerimaan-kas', function () {
-	// 	return view('kas/penerimaan-kas');
-	// })->name('penerimaan.kas');
 	Route::get('pengeluaran-kas', [PengeluaranKasController::class,'index'])->name('pengeluaran.kas');
 	Route::post('pengeluaran-kas', [PengeluaranKasController::class,'store'])->name('pengeluaran-store.kas');
 	Route::put('pengeluaran-kas/{transaksi}', [PengeluaranKasController::class,'update'])->name('pengeluaran-update.kas');

@@ -16,7 +16,6 @@ class CreateNoAkunsTable extends Migration
         Schema::create('no_akuns', function (Blueprint $table) {
             $table->id();
             $table->string('nama_akun');
-            $table->enum('akun_types', ['penerimaan', 'pengeluaran','beban']);
             $table->integer('no_akun')->unique();
             $table->timestamps();
         });

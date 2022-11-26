@@ -23,12 +23,12 @@
                         <th colspan="2" class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Saldo Akhir</th>
                       </tr>
                       <tr>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Debet</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Kredit</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Debet</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Kredit</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Debet</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder">Kredit</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -37,19 +37,19 @@
                         <p class="text-xs font-weight-bold mb-0">Kas</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">1979500</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($KasPenerimaan, 0, ',', '.') }}</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($KasPengeluaran, 0, ',', '.') ? number_format($KasPengeluaran, 0, ',', '.') : ' - ' }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">9680000</p>
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">10000000</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">1659500</p>
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -109,7 +109,7 @@
                         <p class="text-xs font-weight-bold mb-0">Tabungan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ number_format($TabunganMasuk, 0, ',', '.') ? number_format($TabunganMasuk, 0, ',', '.') : ' - ' }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -634,7 +634,7 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">Modal disetor</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -658,7 +658,7 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">Modal donasi</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -682,7 +682,463 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">Cadangan umum</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Cad khusus/tujuan</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Cad Pinj.Ragu-ragu</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Rugi/Laba thn berjalan</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">R/L th.lalu blm dibagi</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Pendapatan bunga dari</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-xs font-weight-bold mb-0">Nasabah</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-xs font-weight-bold mb-0">Lain-lain</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Ongkos administrasi</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Pendapatan lain-lain</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya bunga</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-xs font-weight-bold mb-0">Tabungan</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-xs font-weight-bold mb-0">Simpanan berjangka</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-xs font-weight-bold mb-0">Lain-lain</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya Pegawai</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya Perjalanan</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya Penyusutan</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya pinjaman ragu ragu</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya Lain-lain</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-5">
+                        <p class="text-md font-weight-bold mb-0">Jumlah</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>

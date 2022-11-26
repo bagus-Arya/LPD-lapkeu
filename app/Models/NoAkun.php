@@ -10,7 +10,6 @@ class NoAkun extends Model
     use HasFactory;
     protected $fillable = [
         'nama_akun',
-        'akun_types',
         'no_akun',
     ];
 

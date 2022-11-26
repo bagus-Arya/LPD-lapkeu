@@ -15,692 +15,117 @@
                 <table class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
                       <tr>
-                        <th rowspan="3" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Perkiraan</th>
-                      </tr>
-                      <tr>
-                        <th colspan="2" class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Saldo Awal</th>
-                        <th colspan="2" class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Mutasi</th>
-                        <th colspan="2" class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Saldo Akhir</th>
-                      </tr>
-                      <tr>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
-                        <th class="text-center">Debet</th>
-                        <th class="text-center">Kredit</th>
+                        <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rekening - Rekening</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Sandi</th>
+                        <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Jumlah</th>
                       </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Kas</p>
+                        <p class="text-md font-weight-bold mb-0">A. Pendapatan Operational</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">1979500</p>
+                        <p class="text-xs font-weight-bold mb-0">100</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">9680000</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">10000000</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">1659500</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">23347</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">1. Hasil Bunga</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Giro</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Tabungan</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Deposito</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank Lembaga Lain</p>
+                        <p class="text-xs font-weight-bold mb-0">a. Dari Bank lain</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">100</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Giro</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Tabungan</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">Deposito</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">23347</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">I. Giro</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">II. Simpanan Berjangka</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">III. Pinjaman yang diberikan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">b. Dari Pihak Ketiga bukan Bank</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">100</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">23347</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">I. Pinjaman yang diberikan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
+                        <p class="text-xs font-weight-bold mb-0">II. Lainnya</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-                    
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">0</p>
                       </td>
                     </tr>
                   </tbody>

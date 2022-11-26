@@ -10,6 +10,8 @@ class Transaksi extends Model
     use HasFactory;
     protected $fillable = [
         'no_akun_id',
+        'tgl_transaksi',
+        'akun_types',
         'keterangan',
         'jumlah',
         'konfirmasi',
