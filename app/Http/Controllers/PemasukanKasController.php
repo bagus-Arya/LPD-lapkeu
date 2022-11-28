@@ -11,14 +11,13 @@ use App\Models\NoAkun;
 class PemasukanKasController extends Controller
 {
     public function index(Request $request){
-        $Pemasukans=Transaksi::whereHas('akun',function($query){
-            return $query->where('akun_types','penerimaan');
-        })->with('akun')->orderBy('tgl_transaksi', 'desc')->get();
+        $Pemasukans=Transaksi::where('akun_types','penerimaan')->orderBy('tgl_transaksi', 'desc')->get();
         $Akuns=NoAkun::all();
         return view('kas/penerimaan-kas',compact('Pemasukans','Akuns'));
     }
 
     public function store(Request $request){
+        // return $request->all();
         if($request->user()->user_type!='bendahara'){
             $validator = Validator::make($request->all(), [
                 'no_akun_id' => [
@@ -31,12 +30,12 @@ class PemasukanKasController extends Controller
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'tgl_transaksi'=>['required'],
-                // 'akun_types'=>[
-                //     'required',
-                //     'string',
-                //     Rule::in(['pengeluaran','pemasukan','beban'])
-                // ]
-                'konfirmasi'=>['nullable','boolean']
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
+                // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
         else{
@@ -51,6 +50,11 @@ class PemasukanKasController extends Controller
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'tgl_transaksi'=>['required'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -69,6 +73,7 @@ class PemasukanKasController extends Controller
     }
 
     public function update(Transaksi $transaksi,Request $request){
+        // return $request->all();
         if($request->user()->user_type!='bendahara'){
             $validator = Validator::make($request->all(), [
                 'no_akun_id' => [
@@ -81,12 +86,12 @@ class PemasukanKasController extends Controller
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'tgl_transaksi'=>['required'],
-                // 'akun_types'=>[
-                //     'required',
-                //     'string',
-                //     Rule::in(['pengeluaran','pemasukan','beban'])
-                // ]
-                'konfirmasi'=>['nullable','boolean']
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
+                // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
         else{
@@ -101,6 +106,11 @@ class PemasukanKasController extends Controller
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'tgl_transaksi'=>['required'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 'konfirmasi'=>['nullable','boolean']
             ]);
         }

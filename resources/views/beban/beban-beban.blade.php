@@ -64,6 +64,35 @@
                             </div>
                         </div>
                       </div>
+
+                      <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="tgl_transaksi">Tanggal Transaksi</label>
+                            <div class="@error('tgl_transaksi','addBeban')border border-danger rounded-3 @enderror">
+                                <input id="datepicker" name="tgl_transaksi" class="form-control" value="{{ old('tgl_transaksi') }}" type="date" placeholder="Pilih Tanggal Transaksi" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                            @error('tgl_transaksi','addBeban')
+                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="akun_types">Role</label>
+                            <div class="@error('akun_types','addBeban')border border-danger rounded-3 @enderror">
+                            <select class="form-control" id="addBeban" name="akun_types" readonly>
+                                <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
+                                <!-- <option value="penerimaan" selected>Pemasukan</option>-->
+                                <option value="beban" selected>Beban</option>
+                            </select>
+                            </div>
+                            @error('akun_types','addBeban')
+                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
                       @if (auth()->user()->user_type=='bendahara')
                       <div class="col-md-12">
                         <div class="@error('konfirmasi','addBeban')border border-danger rounded-3 @enderror">
@@ -222,6 +251,34 @@
                                                         </div>
                                                     </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="tgl_transaksi">Tanggal Transaksi</label>
+                                                            <div class="@if($errors->updateBeban->has('tgl_transaksi') && session('updateId')==$beban->id)border border-danger rounded-3 @endif">
+                                                                <input  name="tgl_transaksi" class="form-control datepickers" value="{{ \Carbon\Carbon::parse($beban->tgl_transaksi)->format('Y-m-d')}}" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                @if($errors->updateBeban->has('tgl_transaksi') && session('updateId')==$beban->id)
+                                                                    <p class="text-danger text-xs mt-2">{{$errors->updateBeban->first('tgl_transaksi')}}</p>
+                                                                @endif
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label for="akun_types">Role</label>
+                                                            <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
+                                                            <select class="form-control" id="akun_types" name="akun_types" readonly>
+                                                                <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
+                                                                {{-- <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option> --}}
+                                                                <option value="beban" selected>Beban</option>
+                                                            </select>
+                                                            </div>
+                                                            @if($errors->updatePenerimaan->has('akun_types') && session('updateId')==$pengeluaran->id)
+                                                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                                            @enderror
+                                                        </div>
+                                                    </div>
+
                                                     @if (auth()->user()->user_type=='bendahara')
                                                     <div class="col-md-12">
                                                         <div class="@if($errors->updateBeban->has('konfirmasi') && session('updateId')==$beban->id)border border-danger rounded-3 @endif">

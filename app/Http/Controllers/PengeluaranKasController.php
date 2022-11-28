@@ -11,23 +11,22 @@ use App\Models\NoAkun;
 class PengeluaranKasController extends Controller
 {
     public function index(Request $request){
-        $Pengeluarans=Transaksi::whereHas('akun',function($query){
-            return $query->where('akun_types','pengeluaran');
-        })->with('akun')->orderBy('created_at', 'desc')->get();
+        $Pengeluarans=Transaksi::where('akun_types','pengeluaran')->orderBy('tgl_transaksi', 'desc')->get();
         // $Akuns=NoAkun::where('akun_types','pengeluaran')->get();
         $Akuns=NoAkun::all();
         return view('kas/pengeluaran-kas',compact('Pengeluarans','Akuns'));
     }
 
     public function store(Request $request){
+        // return $request->all();
         if($request->user()->user_type!='bendahara'){
             $validator = Validator::make($request->all(), [
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'pengeluaran');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'pengeluaran');
+                    // })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
@@ -35,8 +34,8 @@ class PengeluaranKasController extends Controller
                 'akun_types'=>[
                     'required',
                     'string',
-                    Rule::in(['pengeluaran','pemasukan','beban'])
-                ]
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -45,12 +44,17 @@ class PengeluaranKasController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'pengeluaran');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'pengeluaran');
+                    // })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 'tgl_transaksi'=>['required'],
                 'konfirmasi'=>['nullable','boolean']
             ]);
@@ -76,9 +80,9 @@ class PengeluaranKasController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'pengeluaran');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'pengeluaran');
+                    // })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
@@ -86,8 +90,8 @@ class PengeluaranKasController extends Controller
                 'akun_types'=>[
                     'required',
                     'string',
-                    Rule::in(['pengeluaran','pemasukan','beban'])
-                ]
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 // 'konfirmasi'=>['nullable','boolean']
             ]);
         }
@@ -96,14 +100,19 @@ class PengeluaranKasController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'pengeluaran');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'pengeluaran');
+                    // })
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'tgl_transaksi'=>['required'],
-                'konfirmasi'=>['nullable','boolean']
+                'konfirmasi'=>['nullable','boolean'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ]
             ]);
         }
 

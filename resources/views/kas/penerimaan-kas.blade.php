@@ -68,26 +68,26 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="tgl_transaksi">Tanggal Transaksi</label>
-                                <div class="@error('tgl_transaksi','addAkun')border border-danger rounded-3 @enderror">
-                                    <input id="datepicker" name="tgl_transaksi" class="form-control" value="{{ old('tgl_transaksi') }}" placeholder="Please select date" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
-                                </div>
-                                @error('tgl_transaksi','addAkun')
+                                <div class="@error('tgl_transaksi','addPenerimaan')border border-danger rounded-3 @enderror">
+                                    <input id="datepicker" name="tgl_transaksi" class="form-control" value="{{ old('tgl_transaksi') }}" type="date" placeholder="Pilih Tanggal Transaksi" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                                @error('tgl_transaksi','addPenerimaan')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
+                                </div>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="akun_types">Role</label>
-                                <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
-                                <select class="form-control" id="akun_types" name="akun_types">
+                                <div class="@error('akun_types','addPenerimaan')border border-danger rounded-3 @enderror">
+                                <select class="form-control" id="addPenerimaan" name="akun_types" readonly>
                                     <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
-                                    <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option>
+                                    <option value="penerimaan" selected>Pemasukan</option>
                                     <!-- <option value="beban" @if($errors->addAkun->any()) {{ old('akun_types')=='beban' ? 'selected' : ''  }} @endif>Beban</option> -->
                                 </select>
                                 </div>
-                                @error('akun_types','addAkun')
+                                @error('akun_types','addPenerimaan')
                                     <p class="text-danger text-xs mt-2">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -257,9 +257,11 @@
                                                         <div class="form-group">
                                                             <label for="tgl_transaksi">Tanggal Transaksi</label>
                                                             <div class="@if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                                <input id="datepickers" name="tgl_transaksi" class="form-control" value="{{ old('tgl_transaksi') }}" placeholder="Please select date" type="text" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                <input  name="tgl_transaksi" class="form-control datepickers" value="{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('Y-m-d')}}" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                @if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)
+                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('tgl_transaksi')}}</p>
+                                                                @endif
                                                             </div>
-                                                          
                                                         </div>
                                                     </div>
 
@@ -267,7 +269,7 @@
                                                         <div class="form-group">
                                                             <label for="akun_types">Role</label>
                                                             <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
-                                                            <select class="form-control" id="akun_types" name="akun_types">
+                                                            <select class="form-control" id="akun_types" name="akun_types" readonly>
                                                                 <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
                                                                 <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option>
                                                                 <!-- <option value="beban" @if($errors->addAkun->any()) {{ old('akun_types')=='beban' ? 'selected' : ''  }} @endif>Beban</option> -->
@@ -296,12 +298,13 @@
                                                     </div>
                                                     @endif
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                                                    <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+                                                </div>
+                                            </form>
                                         </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn bg-gradient-dark">Simpan</button>
-                                            </div>
-                                        </form>
+                                         
                                         </div>
                                     </div>
                                 </div>    
@@ -353,23 +356,20 @@
 </script>
 @endif
 
-<script>
+{{-- <script>
     $(document).ready(function() {
         const flatpickr_time = $('#datepicker').flatpickr({
             //static: position the calendar inside the wrapper and next to the input element*.
             static: true
         });
+        // const flatpickr_time2 = $('.datepickers').flatpickr({
+        //     //static: position the calendar inside the wrapper and next to the input element*.
+        //     static: true
+        // });
     });
-</script>
+</script> --}}
 
-<script>
-    $(document).ready(function() {
-        const flatpickr_time = $('#datepickers').flatpickr({
-            //static: position the calendar inside the wrapper and next to the input element*.
-            static: true
-        });
-    });
-</script>
+
 
 @if($errors->updatePenerimaan->any())
 <script>

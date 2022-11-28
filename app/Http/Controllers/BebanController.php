@@ -11,10 +11,8 @@ use App\Models\NoAkun;
 class BebanController extends Controller
 {
     public function index(Request $request){
-        $Bebans=Transaksi::whereHas('akun',function($query){
-            return $query->where('akun_types','beban');
-        })->with('akun')->orderBy('created_at', 'desc')->get();
-        $Akuns=NoAkun::where('akun_types','beban')->get();
+        $Bebans=Transaksi::where('akun_types','beban')->orderBy('tgl_transaksi', 'desc')->get();
+        $Akuns=NoAkun::all();
         return view('beban/beban-beban',compact('Bebans','Akuns'));
     }
 
@@ -24,10 +22,16 @@ class BebanController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'beban');
+                    // })
                 ],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
+                'tgl_transaksi'=>['required'],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 // 'konfirmasi'=>['nullable','boolean']
@@ -38,9 +42,15 @@ class BebanController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'beban');
+                    // })
+                ],
+                'tgl_transaksi'=>['required'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
                 ],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
@@ -67,11 +77,17 @@ class BebanController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'beban');
+                    // })
                 ],
+                'tgl_transaksi'=>['required'],
                 'keterangan' => ['required','string', 'max:50'],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
                 'jumlah'=>['required','integer'],
                 // 'konfirmasi'=>['nullable','boolean']
             ]);
@@ -81,10 +97,16 @@ class BebanController extends Controller
                 'no_akun_id' => [
                     'required',
                     'integer',
-                    Rule::exists('no_akuns','id')->where(function ($query) {
-                        return $query->where('akun_types', 'beban');
-                    })
+                    // Rule::exists('no_akuns','id')->where(function ($query) {
+                    //     return $query->where('akun_types', 'beban');
+                    // })
                 ],
+                'akun_types'=>[
+                    'required',
+                    'string',
+                    Rule::in(['pengeluaran','penerimaan','beban'])
+                ],
+                'tgl_transaksi'=>['required'],
                 'keterangan' => ['required','string', 'max:50'],
                 'jumlah'=>['required','integer'],
                 'konfirmasi'=>['nullable','boolean']
