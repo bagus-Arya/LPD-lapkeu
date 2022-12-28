@@ -14,9 +14,9 @@ class CreateNoAkunsTable extends Migration
     public function up()
     {
         Schema::create('no_akuns', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
             $table->string('nama_akun');
-            $table->integer('no_akun')->unique();
+            $table->integer('no_akun');
             $table->timestamps();
         });
     }

@@ -5,14 +5,20 @@ use App\Models\User;
 use App\Models\NoAkun;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
-
+use DB;
 use Illuminate\Http\Request;
 
 class AkunController extends Controller
 {
-    public function index(){
-        $allno_akun=NoAkun::all();
-        return view('akun/akun-page',compact('allno_akun'));
+    public function index(Request $request){
+        $cari = $request->cari;
+ 
+        $allno_akun= NoAkun::all();
+        $AkunCari = DB::table('no_akuns')
+        ->where('nama_akun','like',"%".$cari."%")
+        ->paginate();
+        
+        return view('akun/akun-page',compact('allno_akun','AkunCari'));
     }
 
     // public function store(Request $request){

@@ -16,16 +16,6 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'fullname' => 'admin',
-            'user_type'=>'admin',
-            'username' => 'admin123',
-            'email' => 'admin@softui.com',
-            'password' => Hash::make('secret'),
-            'phone'=>'12345',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('users')->insert([
             'fullname' => 'ketua',
             'user_type'=>'ketua',
             'username' => 'ketua123',

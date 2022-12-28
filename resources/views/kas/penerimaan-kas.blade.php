@@ -314,7 +314,7 @@
                                       <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->akun->no_akun }} - {{ $pengeluaran->akun->nama_akun }}</p>
                                   </td>
                                   <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->jumlah }} </p>
+                                    <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($pengeluaran->jumlah, 0, ',', '.') ? number_format($pengeluaran->jumlah, 0, ',', '.') : ' - ' }} </p>
                                 </td>
                                 <td class="text-center">
                                     <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->keterangan }}</p>

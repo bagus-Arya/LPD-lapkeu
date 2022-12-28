@@ -12,6 +12,7 @@ use App\Http\Controllers\PemasukanKasController;
 use App\Http\Controllers\NeracaPercobaanController;
 use App\Http\Controllers\AkunController;
 use App\Http\Controllers\ChangeProfileController;
+use App\Http\Controllers\JurnalUmumController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Route;
@@ -40,18 +41,22 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::group(['prefix' => 'laporan'], function () {
 		Route::get('neraca-percobaan', [NeracaPercobaanController::class,'index'])->name('neraca.percobaan');
 
+		// Route::get('jurnal-umum', [JurnalUmumController::class,'index'])->name('jurnal.umum');
+		
 		Route::get('arus-kas', function () {
 			return view('laporan/arus-kas');
 		})->name('arus.kas');
+
 		Route::get('laba-rugi', function () {
 			return view('laporan/laba-rugi');
 		})->name('laba.rugi');
+
 		Route::get('perubahan-modal', function () {
 			return view('laporan/perubahan-modal');
 		})->name('perubahan.modal');
-		Route::get('neraca', function () {
-			return view('laporan/neraca');
-		})->name('necara');
+		
+		Route::get('neraca', [NeracaPercobaanController::class,'neracabulanan'])->name('neraca.bulanan');
+
 	});
 	
 	// Akun
@@ -67,6 +72,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('penerimaan-kas/{transaksi}', [PemasukanKasController::class,'update'])->name('penerimaan-update.kas');
 	Route::delete('penerimaan-kas/{transaksi}', [PemasukanKasController::class,'destroy'])->name('penerimaan-destroy.kas');
 	
+	// Jurnal 
+	// Route::post('jurnal-umum', [JurnalUmumController::class,'store'])->name('jurnal-store.umum');
+	// Route::put('jurnal-umum/{transaksi}', [JurnalUmumController::class,'update'])->name('jurnal-update.umum');
+	// Route::delete('jurnal-umum/{transaksi}', [JurnalUmumController::class,'destroy'])->name('jurnal-delete.umum');
+
 	// Beban - Beban
 	Route::get('beban-beban',[BebanController::class,'index'])->name('beban');
 	Route::post('beban-beban-store',[BebanController::class,'store'])->name('beban-store');

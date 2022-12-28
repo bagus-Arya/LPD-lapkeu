@@ -22,15 +22,64 @@
                   <tbody>
                     <tr>
                         <td class="ps-4">
-                          <p class="text-xs font-weight-bold mb-0">Kas</p>
+                          <p class="text-ls font-weight-bold mb-0">Arus Kas Dari Aktivitas Operasi</p>
                         </td>
                         <td class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">10000000</p>
+                          <p class="text-xs font-weight-bold mb-0"> </p>
                         </td>
                         <td class="text-center">
-                          <p class="text-xs font-weight-bold mb-0">1659500</p>
+                          <p class="text-xs font-weight-bold mb-0"> </p>
                         </td>
-                      </tr>
+                    </tr>
+
+                    <tr>
+                        <td class="ps-4">
+                          <p class="text-xs font-weight-bold mb-0">Laba(Rugi) sebelum pajak & Pos Luar Biasa</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> Rp. 500.000 </p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="ps-4">
+                          <p class="text-xs font-weight-bold mb-0">Penambahan :</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> </p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="ps-4">
+                          <p class="text-xs font-weight-bold mb-0">Beban Penyusutan</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> Rp. 500.000 </p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="ps-4">
+                          <p class="text-ls font-weight-bold mb-0">Laba operasi sebelum perubahan modal kerja</p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> </p>
+                        </td>
+                        <td class="text-center">
+                          <p class="text-xs font-weight-bold mb-0"> Rp. 1.000.000 </p>
+                        </td>
+                    </tr>
+
                   </tbody>
                 </table>
               </div>

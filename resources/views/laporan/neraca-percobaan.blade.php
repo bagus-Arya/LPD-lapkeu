@@ -37,19 +37,19 @@
                         <p class="text-xs font-weight-bold mb-0">Kas</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($KasPenerimaan, 0, ',', '.') }}</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($KasPengeluaran, 0, ',', '.') ? number_format($KasPengeluaran, 0, ',', '.') : ' - ' }}</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumKasAWDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiKasDebet) }}</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiKasKredit) }}</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah(($SumKasAWDebet + $MutasiKasDebet - $MutasiKasKredit)) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -61,22 +61,22 @@
                         <p class="text-xs font-weight-bold mb-0">Bank BPD</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
                     
@@ -85,7 +85,7 @@
                         <p class="text-xs font-weight-bold mb-0">Giro</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumBiaya_PegawaiAWDebet) }}  </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -97,7 +97,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumBiaya_PegawaiAWDebet) }}  </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -109,19 +109,19 @@
                         <p class="text-xs font-weight-bold mb-0">Tabungan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ number_format($TabunganMasuk, 0, ',', '.') ? number_format($TabunganMasuk, 0, ',', '.') : ' - ' }} </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -133,19 +133,19 @@
                         <p class="text-xs font-weight-bold mb-0">Deposito</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -157,22 +157,22 @@
                         <p class="text-xs font-weight-bold mb-0">Bank Lembaga Lain</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
@@ -181,19 +181,19 @@
                         <p class="text-xs font-weight-bold mb-0">Giro</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -205,19 +205,19 @@
                         <p class="text-xs font-weight-bold mb-0">Tabungan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -229,19 +229,19 @@
                         <p class="text-xs font-weight-bold mb-0">Deposito</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -253,22 +253,22 @@
                         <p class="text-xs font-weight-bold mb-0">Pinjaman yg diberikan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
@@ -277,7 +277,7 @@
                         <p class="text-xs font-weight-bold mb-0">Pinjaman Bulanan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -286,10 +286,10 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -301,7 +301,7 @@
                         <p class="text-xs font-weight-bold mb-0">Pinjaman Musiman</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -313,7 +313,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -325,22 +325,22 @@
                         <p class="text-xs font-weight-bold mb-0">Aktiva tetap</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
@@ -349,7 +349,7 @@
                         <p class="text-xs font-weight-bold mb-0">Harga Perolehan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -361,7 +361,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -376,7 +376,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -388,7 +388,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -397,7 +397,7 @@
                         <p class="text-xs font-weight-bold mb-0">Aktiva lain-lain</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -406,13 +406,13 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> - </p>  
                       </td>
                     </tr>
 
@@ -421,28 +421,34 @@
                         <p class="text-xs font-weight-bold mb-0">Tabungan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
                     <tr>
                       <td class="ps-5">
-                        <p class="text-xs font-weight-bold mb-0">tabungan Wajib</p>
+                        <p class="text-xs font-weight-bold mb-0">Tabungan Wajib</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -454,13 +460,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                     </tr>
 
@@ -472,13 +472,13 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -496,7 +496,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -508,7 +508,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                     </tr>
 
@@ -520,7 +520,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -532,7 +532,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($MutasiBPDTabunganDebet) }} </p>
                       </td>
                     </tr>
 
@@ -544,7 +544,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -556,34 +556,10 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Titipan</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-                    
                     <tr>
                       <td class="ps-4">
                         <p class="text-xs font-weight-bold mb-0">Kewajiban lain-lain</p>
@@ -592,7 +568,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -604,7 +580,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -613,22 +589,22 @@
                         <p class="text-xs font-weight-bold mb-0">Modal</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">  <Rp. {{ rupiah($MutasiBPDTabunganDebet) }}
                       </td>
                     </tr>
 
@@ -640,7 +616,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -652,7 +628,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -664,7 +640,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -676,7 +652,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -688,7 +664,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -700,7 +676,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -712,7 +688,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -724,7 +700,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -736,7 +712,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -748,7 +724,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -832,19 +808,19 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -856,7 +832,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -868,7 +844,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -880,7 +856,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -892,7 +868,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -904,7 +880,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -916,7 +892,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                     </tr>
 
@@ -925,22 +901,22 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya bunga</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                     </tr>
 
@@ -949,19 +925,19 @@
                         <p class="text-xs font-weight-bold mb-0">Tabungan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -973,7 +949,7 @@
                         <p class="text-xs font-weight-bold mb-0">Simpanan berjangka</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -985,7 +961,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1021,19 +997,19 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya Pegawai</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($SumBiaya_PegawaiAWDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1045,7 +1021,7 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya Perjalanan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1057,7 +1033,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1069,7 +1045,7 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya Penyusutan</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1081,7 +1057,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1093,7 +1069,7 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya pinjaman ragu ragu</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1105,7 +1081,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1117,7 +1093,7 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya Lain-lain</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
@@ -1129,7 +1105,7 @@
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>

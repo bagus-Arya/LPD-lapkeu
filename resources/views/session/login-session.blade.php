@@ -17,7 +17,7 @@
                     @csrf
                     <label>Username</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="admin123" aria-label="Username">
+                      <input type="text" class="form-control" name="username" id="username" placeholder="Username" value="bendahara123" aria-label="Username">
                       @error('username')
                         <p class="text-danger text-xs mt-2">{{ $message }}</p>
                       @enderror

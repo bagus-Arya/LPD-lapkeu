@@ -9,8 +9,17 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">{{__('akun.all_akun')}}</h5>
+                            <h5 class="mb-0">{{__('akun.all_akun')}} ({{ $AkunCari->total() }})</h5>
                         </div>
+                        <form action="{{ route('akun') }}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                    <input class="form-control" type="text" name="cari" placeholder="Cari Akun" value="{{ old('cari') }}">
+                                    <input class="btn bg-gradient-dark btn-sm mb-0" type="submit" value="CARI">
+                                </div>
+                            </div>
+	                    </form>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -30,6 +39,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            @php
+                                $datas = $AkunCari->count();
+                            @endphp
+                            @if( $datas < 1)
                                 @foreach ($allno_akun as $no_akun)
                                 <tr>
                                     <td class="ps-4">
@@ -43,8 +56,37 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                            @else
+                                @foreach($AkunCari as $data)
+                                    <tr>
+                                        <td class="ps-4">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $data->id }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $data->no_akun }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $data->nama_akun }}</p>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                    <!-- <tr>
+                                        <td class="ps-4">
+                                            <p class="text-xs font-weight-bold mb-0">Halaman : {{ $AkunCari->currentPage() }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Jumlah Data : {{ $AkunCari->total() }}</p>
+                                        </td>
+                                        <td class="text-center">
+                                            <p class="text-xs font-weight-bold mb-0">Data Per Halaman : {{ $AkunCari->perPage() }}</p>
+                                        </td>
+                                    </tr> -->
+                            @endif
                             </tbody>
                         </table>
+                        <div class="pagination justify-content-center mt-3">
+                            {{ $AkunCari->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

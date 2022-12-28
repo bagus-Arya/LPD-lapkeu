@@ -16,9 +16,13 @@ return [
     'validasi' => 'Validasi',
     'akun' => 'Akun',
     'data_akun' => 'Data Akun',
+
     'laporan' => 'Laporan',
     'laporan_neraca_percobaan' => 'Neraca Percobaan',
     'laporan_arus_kas' => 'Arus Kas',
+    'laporan_jurnal_umum' => 'Jurnal Umum',
+    'tambah_laporan_jurnal_umum' => 'Tambah Data Jurnal Umum',
+
     'laba_rugi' => 'Laba Rugi',
     'perubahan_modal' => 'Perubahan Modal',
     'neraca' => 'Neraca',

@@ -51,7 +51,7 @@
             </main>
         @endif
 
-        @include('components.fixed-plugin')
+        <!-- include('components.fixed-plugin') -->
     @endif
 
     
