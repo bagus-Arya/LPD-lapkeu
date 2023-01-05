@@ -324,11 +324,41 @@ class NeracaPercobaanController extends Controller
 
     public function neracabulanan(Request $request){
 
+        // Aktiva
         $totalKas = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
-
+        $totalGiro = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalTabungan = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalDeposito = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPinjamanDiberikan = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPiutangRagu = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalHargaPerolehan = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalAkumulasiPenyusutan = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalRupaRupa = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalAktiva = $totalKas+$totalGiro+$totalTabungan+$totalDeposito+$totalPinjamanDiberikan+$totalPiutangRagu+$totalHargaPerolehan+$totalAkumulasiPenyusutan+$totalRupaRupa;
+        
+        // Pasiva
+        $totalPTabungan = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPSimpananBerjangka = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPAntarBank = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPPinjamanDiterima = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPRupaPasiva = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPModalDisetor = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPCadanganUmum = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPLaba = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        $totalPasiva = Transaksi::getKas_AW_Debet() + Transaksi::getMutasiKasDebet() - Transaksi::getMutasiKasKredit();
+        
         return view('laporan/neraca',
             compact(
-                'totalKas'
+                'totalKas',
+                'totalGiro',
+                'totalTabungan',
+                'totalDeposito',
+                'totalPinjamanDiberikan',
+                'totalPiutangRagu',
+                'totalHargaPerolehan',
+                'totalAkumulasiPenyusutan',
+                'totalRupaRupa',
+                'totalAktiva',
             ));
     }
 
