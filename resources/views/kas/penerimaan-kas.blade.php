@@ -180,7 +180,10 @@
                                     Status
                                 </th>
                                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Input Date
+                                    Tanggal Transaksi
+                                </th>
+                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Tanggal Input
                                 </th>
                                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Action
@@ -324,6 +327,9 @@
                                 </td>
                                 <td class="text-center">
                                     <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('d M Y')}}</p>
+                                </td>
+                                <td class="text-center">
+                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d M Y')}}</p>
                                 </td>
                                 <td class="text-center">
                                     <button type="button" class="btn p-0 m-0 btn-link" data-bs-toggle="modal" data-bs-target="#updatePenerimaanModal{{ $pengeluaran->id }}">

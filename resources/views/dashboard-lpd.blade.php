@@ -68,9 +68,19 @@
       gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
       gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
       gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
-      
-      var s = 50;
-      var dataPengeluaran = [s, 40, 300, 220, 500, 250, 400, 230, 500];
+
+      $P_Jan = {{$P_Jan}};
+      $P_Feb = {{$P_Feb}};
+      $P_Mar = {{$P_Mar}};
+      $P_Apr = {{$P_Apr}};
+      $P_Mei = {{$P_Mei}};
+      $P_Jun = {{$P_Jun}};
+      $P_Jul = {{$P_Jul}};
+      $P_Aug = {{$P_Aug}};
+      $P_Sep = {{$P_Sep}};
+      $P_Oct = {{$P_Oct}};
+      $P_Nov = {{$P_Nov}};
+      $P_Des = {{$P_Des}};
 
       new Chart(ctx1, {
         type: "bar",
@@ -85,7 +95,7 @@
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
-              data: dataPengeluaran,
+              data: [$P_Jan, $P_Feb, $P_Mar, $P_Apr, $P_Mei, $P_Jun, $P_Jul, $P_Aug, $P_Sep, $P_Oct, $P_Nov, $P_Des],
               maxBarThickness: 6
 
             },
@@ -162,6 +172,19 @@
       gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
       gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
 
+      $Jan = {{$Jan}};
+      $Feb = {{$Feb}};
+      $Mar = {{$Mar}};
+      $Apr = {{$Apr}};
+      $Mei = {{$Mei}};
+      $Jun = {{$Jun}};
+      $Jul = {{$Jul}};
+      $Aug = {{$Aug}};
+      $Sep = {{$Sep}};
+      $Oct = {{$Oct}};
+      $Nov = {{$Nov}};
+      $Des = {{$Des}};
+
       new Chart(ctx2, {
         type: "bar",
         data: {
@@ -175,7 +198,7 @@
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
-              data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+              data: [$Jan, $Feb, $Mar, $Apr, $Mei, $Jun, $Jul, $Aug, $Sep, $Oct, $Nov, $Des],
               maxBarThickness: 6
 
             },

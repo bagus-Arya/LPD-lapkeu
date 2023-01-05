@@ -8,7 +8,14 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Laba / Rugi</h6>
+              <div class="d-flex flex-row justify-content-between">
+                  <div>
+                      <h5 class="mb-0">Laba / Rugi</h5>
+                  </div>
+                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
+                      +&nbsp; Cetak Laporan
+                  </button>
+              </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -95,13 +102,25 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">b. Dari Pihak Ketiga bukan Bank</p>
+                        <p class="text-xs font-weight-bold mb-0">IV.Lainnya</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0">124</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($PendapatanBungaLainSaldoAkhirKredit)}}</p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">b. Dari Pihak Ketiga bukan Bank</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">  </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">  </p>
                       </td>
                     </tr>
 
@@ -113,7 +132,7 @@
                         <p class="text-xs font-weight-bold mb-0">126</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{rupiah($PendapatanBungaNasabahSaldoAkhirKredit)}} </p>
                       </td>
                     </tr>
 

@@ -265,7 +265,7 @@
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-light btn-md mt-4 mb-4" data-bs-toggle="modal" data-bs-target="#changePasswordModal" >Ubah Password</button>
                         <div class="mx-2"></div>
-                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Save Changes' }}</button>
+                        <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ 'Simpan' }}</button>
                     </div>
                 </form>
             </div>

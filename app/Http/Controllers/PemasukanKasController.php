@@ -11,7 +11,8 @@ use App\Models\NoAkun;
 class PemasukanKasController extends Controller
 {
     public function index(Request $request){
-        $Pemasukans=Transaksi::where('akun_types','penerimaan')->orderBy('tgl_transaksi', 'desc')->get();
+        $Pemasukans=Transaksi::where('akun_types','penerimaan')
+        ->orderBy('tgl_transaksi', 'desc')->get();
         $Akuns=NoAkun::all();
         return view('kas/penerimaan-kas',compact('Pemasukans','Akuns'));
     }

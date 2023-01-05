@@ -354,7 +354,7 @@ class TransaksiSeeder extends Seeder
         ]);
       
         DB::table('no_akuns')->insert([
-            'nama_akun'=>'Modal Disetor',
+            'nama_akun'=>'Modal Donasi',
             'no_akun'=>422
         ]);
         
@@ -384,6 +384,10 @@ class TransaksiSeeder extends Seeder
         DB::table('no_akuns')->insert([
             'nama_akun'=>'Kewajiban Lain-Lain',
             'no_akun'=>381
+        ]);
+        DB::table('no_akuns')->insert([
+            'nama_akun'=>'Aktiva Lain lain',
+            'no_akun'=>231
         ]);
     }
 }

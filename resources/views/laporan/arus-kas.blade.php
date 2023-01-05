@@ -8,7 +8,14 @@
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
-              <h6>Arus Kas</h6>
+              <div class="d-flex flex-row justify-content-between">
+                  <div>
+                      <h5 class="mb-0">Arus Kas</h5>
+                  </div>
+                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
+                      +&nbsp; Cetak Laporan
+                  </button>
+              </div>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">

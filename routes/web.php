@@ -32,11 +32,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', [HomeController::class, 'home']);
-	Route::get('dashboard', function () {
-		// return view('dashboard');
-		return view('dashboard-lpd');
-	})->name('dashboard');
-	
+	Route::get('dashboard', [HomeController::class,'home'])->name('dashboard');
+
 	// Laporan
 	Route::group(['prefix' => 'laporan'], function () {
 		Route::get('neraca-percobaan', [NeracaPercobaanController::class,'index'])->name('neraca.percobaan');
@@ -47,10 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
 			return view('laporan/arus-kas');
 		})->name('arus.kas');
 
-		Route::get('laba-rugi', function () {
-			return view('laporan/laba-rugi');
-		})->name('laba.rugi');
-
+		Route::get('laba-rugi', [NeracaPercobaanController::class,'labarugi'])->name('laba.rugis');
+		
 		Route::get('perubahan-modal', function () {
 			return view('laporan/perubahan-modal');
 		})->name('perubahan.modal');
