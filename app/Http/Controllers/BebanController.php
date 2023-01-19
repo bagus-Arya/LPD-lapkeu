@@ -7,13 +7,25 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Transaksi;
 use App\Models\NoAkun;
+use DB;
 
 class BebanController extends Controller
 {
     public function index(Request $request){
-        $Bebans=Transaksi::where('akun_types','beban')->orderBy('tgl_transaksi', 'desc')->get();
+
+        $cari = $request->cari;
+        
+        $BebanCari=DB::table('transaksis'
+        )->where('keterangan','like',"%".$cari."%")
+        ->where('akun_types','beban')
+        ->orderBy('tgl_transaksi', 'desc')->paginate();
+
+        $Bebans=Transaksi::where('akun_types','beban')
+        ->where('keterangan','like',"%".$cari."%")
+        ->orderBy('tgl_transaksi', 'desc')->get();
         $Akuns=NoAkun::all();
-        return view('beban/beban-beban',compact('Bebans','Akuns'));
+        return view('beban/beban-beban',compact('Bebans','BebanCari','Akuns'));
+
     }
 
     public function store(Request $request){

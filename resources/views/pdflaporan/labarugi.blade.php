@@ -1,24 +1,24 @@
-@extends('layouts.user_type.auth')
-
-@section('content')
-
-<main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <div class="d-flex flex-row justify-content-between">
-                  <div>
-                      <h5 class="mb-0">Laba / Rugi</h5>
-                  </div>
-                  <a href="{{route('pdf.laba')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
-
-              </div>
-            </div>
-            <div class="card-body pt-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0" cellpadding="10px">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+#tablestyle {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse:collapse;
+    width:100%;
+}
+#tablestyle td, #tablestyle th {
+    border:1px solid #ddd;
+    padding: 8px;
+}
+</style>
+<body>
+                <table id="tablestyle" class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
                       <tr>
                         <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Rekening - Rekening</th>
@@ -522,12 +522,5 @@
 
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  
-@endsection
+</body>
+</html>

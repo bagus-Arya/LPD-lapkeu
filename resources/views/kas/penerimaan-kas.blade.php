@@ -79,7 +79,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="akun_types">Role</label>
+                                <label for="akun_types">Akun</label>
                                 <div class="@error('akun_types','addPenerimaan')border border-danger rounded-3 @enderror">
                                 <select class="form-control" id="addPenerimaan" name="akun_types" readonly>
                                     <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
@@ -157,194 +157,213 @@
                       <div>
                           <h5 class="mb-0">{{__('penerimaan.all_penerimaan')}}</h5>
                       </div>
-                      <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
-                          +&nbsp; {{__('penerimaan.add_penerimaan')}}
-                      </button>
+                      <form action="{{ route('penerimaan.kas') }}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                    <input class="form-control" type="text" name="cari" placeholder="Cari.." value="{{ old('cari') }}">
+                                    <input class="btn bg-gradient-dark btn-sm mb-0" type="submit" value="CARI">
+                                </div>
+                            </div>
+                        </form>
+                        <span>
+                            <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
+                                +&nbsp; {{__('penerimaan.add_penerimaan')}}
+                            </button>
+                        </span>
                   </div>
               </div>
-              <div class="card-body px-0 pt-0 pb-2">
+              <div class="card-body pt-2">
                   <div class="table-responsive p-0">
                       <table class="table align-items-center mb-0">
                           <thead>
                               <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Nomor Akun
                                   </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Jumlah
-                                        </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Keterangan
                                   </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Jumlah
+                                        </th>
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Status
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Transaksi
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Input
                                 </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Action
                                   </th>
                               </tr>
                           </thead>
                           <tbody>
-                            @foreach ($Pemasukans as $pengeluaran)
-                                
-                            <!-- Modal -->
-                                <div class="modal fade" id="updatePenerimaanModal{{ $pengeluaran->id }}" tabindex="-1" role="dialog" aria-labelledby="updatePenerimaanLabel{{ $pengeluaran->id }}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title font-weight-normal" id="updatePenerimaanLabel{{ $pengeluaran->id }}">Update Penerimaan Kas</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                            @php
+                                $datas = $Pemasukans->count();
+                            @endphp
+                            @if( $datas < 1)
+                                <h1>No Data</h1>
+                            @else
+                            
+                                @foreach ($Pemasukans as $pengeluaran)
+                                    
+                                    <!-- Modal -->
+                                        <div class="modal fade" id="updatePenerimaanModal{{ $pengeluaran->id }}" tabindex="-1" role="dialog" aria-labelledby="updatePenerimaanLabel{{ $pengeluaran->id }}" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title font-weight-normal" id="updatePenerimaanLabel{{ $pengeluaran->id }}">Update Penerimaan Kas</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ route('penerimaan-update.kas',['transaksi' => $pengeluaran->id]) }}" method="POST" role="form text-left">
+                                                        @csrf
+                                                        @method('put')
+                                                        @if($errors->updatePenerimaan->any() && session('updateId')==$pengeluaran->id)
+                                                            <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
+                                                                <span class="alert-text text-white">
+                                                                {{$errors->updatePenerimaan->first()}}</span>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                                    <i class="fa fa-close" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                        @endif
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="no_akun_id">Akun</label>
+                                                                    <div class="@if($errors->updatePenerimaan->has('no_akun_id') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                    
+                                                                    <select class="form-control" id="no_akun_id" name="no_akun_id">
+                                                                        @foreach ($Akuns as $akun)
+                                                                            <option value="{{ $akun->id }}" {{ $akun->id==$pengeluaran->no_akun_id ? 'selected' : '' }}>{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                    </div>
+                                                                    @if($errors->updatePenerimaan->has('no_akun_id') && session('updateId')==$pengeluaran->id)
+                                                                        <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('no_akun_id')}}</p>
+                                                                        @endif
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
+                                                                    <div class="@if($errors->updatePenerimaan->has('jumlah') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                        <input class="form-control" type="number" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ $pengeluaran->jumlah }}">
+                                                                        @if($errors->updatePenerimaan->has('jumlah') && session('updateId')==$pengeluaran->id)
+                                                                            <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('jumlah')}}</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label for="keterangan">{{ __('Keterangan') }}</label>
+                                                                    <div class="@if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                        <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ $pengeluaran->keterangan }}</textarea>
+                                                                        @if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)
+                                                                            <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('keterangan')}}</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="tgl_transaksi">Tanggal Transaksi</label>
+                                                                    <div class="@if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                        <input  name="tgl_transaksi" class="form-control datepickers" value="{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('Y-m-d')}}" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                                                                        @if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)
+                                                                            <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('tgl_transaksi')}}</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="akun_types">Akun</label>
+                                                                    <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
+                                                                    <select class="form-control" id="akun_types" name="akun_types" readonly>
+                                                                        <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
+                                                                        <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option>
+                                                                        <!-- <option value="beban" @if($errors->addAkun->any()) {{ old('akun_types')=='beban' ? 'selected' : ''  }} @endif>Beban</option> -->
+                                                                    </select>
+                                                                    </div>
+                                                                    @if($errors->updatePenerimaan->has('akun_types') && session('updateId')==$pengeluaran->id)
+                                                                        <p class="text-danger text-xs mt-2">{{ $message }}</p>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            @if (auth()->user()->user_type=='bendahara')
+                                                            <div class="col-md-12">
+                                                                <div class="@if($errors->updatePenerimaan->has('konfirmasi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
+                                                                    <div class="form-check">
+                                                                        <input type="hidden" name="konfirmasi" value="0" />
+                                                                        <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ $pengeluaran->konfirmasi==1 ?  'checked="checked"' : '' }}>
+                                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                                        Konfirmasi Transaksi
+                                                                        </label>
+                                                                        @if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)
+                                                                            <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('konfirmasi')}}</p>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            @endif
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                                </div>
+                                            </div>
+                                        </div>    
+
+                                    <tr>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0">{{$pengeluaran->akun->no_akun}}  -  {{$pengeluaran->akun->nama_akun}} </p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->keterangan }}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($pengeluaran->jumlah, 0, ',', '.') ? number_format($pengeluaran->jumlah, 0, ',', '.') : ' - ' }} </p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0 {{ $pengeluaran->konfirmasi==1 ? 'text-success': 'text-danger' }}">{{ $pengeluaran->konfirmasi==1 ? 'Accepted': 'Not Accepted' }}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('d M Y')}}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d M Y')}}</p>
+                                        </td>
+                                        <td class="text-left">
+                                            <button type="button" class="btn p-0 m-0 btn-link" data-bs-toggle="modal" data-bs-target="#updatePenerimaanModal{{ $pengeluaran->id }}">
+                                                <i class="fas fa-user-edit fa-lg text-secondary"></i>
                                             </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('penerimaan-update.kas',['transaksi' => $pengeluaran->id]) }}" method="POST" role="form text-left">
-                                                @csrf
-                                                @method('put')
-                                                @if($errors->updatePenerimaan->any() && session('updateId')==$pengeluaran->id)
-                                                    <div class="mt-3  alert alert-primary alert-dismissible fade show" role="alert">
-                                                        <span class="alert-text text-white">
-                                                        {{$errors->updatePenerimaan->first()}}</span>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                                                            <i class="fa fa-close" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                @endif
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="no_akun_id">Role</label>
-                                                            <div class="@if($errors->updatePenerimaan->has('no_akun_id') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                            
-                                                            <select class="form-control" id="no_akun_id" name="no_akun_id">
-                                                                @foreach ($Akuns as $akun)
-                                                                    <option value="{{ $akun->id }}" {{ $akun->id==$pengeluaran->no_akun_id ? 'selected' : '' }}>{{ $akun->no_akun }} - {{ $akun->nama_akun }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            </div>
-                                                            @if($errors->updatePenerimaan->has('no_akun_id') && session('updateId')==$pengeluaran->id)
-                                                                <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('no_akun_id')}}</p>
-                                                                @endif
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="jumlah" class="form-control-label">{{ __('Jumlah') }}</label>
-                                                            <div class="@if($errors->updatePenerimaan->has('jumlah') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                                <input class="form-control" type="number" placeholder="Masukan Jumlah" id="jumlah" name="jumlah" value="{{ $pengeluaran->jumlah }}">
-                                                                @if($errors->updatePenerimaan->has('jumlah') && session('updateId')==$pengeluaran->id)
-                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('jumlah')}}</p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="keterangan">{{ __('Keterangan') }}</label>
-                                                            <div class="@if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                                <textarea class="form-control" id="keterangan" rows="3" placeholder="Masukan Keterangan" name="keterangan">{{ $pengeluaran->keterangan }}</textarea>
-                                                                @if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)
-                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('keterangan')}}</p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="tgl_transaksi">Tanggal Transaksi</label>
-                                                            <div class="@if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                                <input  name="tgl_transaksi" class="form-control datepickers" value="{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('Y-m-d')}}" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
-                                                                @if($errors->updatePenerimaan->has('tgl_transaksi') && session('updateId')==$pengeluaran->id)
-                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('tgl_transaksi')}}</p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label for="akun_types">Role</label>
-                                                            <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
-                                                            <select class="form-control" id="akun_types" name="akun_types" readonly>
-                                                                <!-- <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option> -->
-                                                                <option value="penerimaan" @if($errors->addAkun->any()) {{ old('akun_types')=='penerimaan' ? 'selected' : ''  }} @endif>Pemasukan</option>
-                                                                <!-- <option value="beban" @if($errors->addAkun->any()) {{ old('akun_types')=='beban' ? 'selected' : ''  }} @endif>Beban</option> -->
-                                                            </select>
-                                                            </div>
-                                                            @if($errors->updatePenerimaan->has('akun_types') && session('updateId')==$pengeluaran->id)
-                                                                <p class="text-danger text-xs mt-2">{{ $message }}</p>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-
-                                                    @if (auth()->user()->user_type=='bendahara')
-                                                    <div class="col-md-12">
-                                                        <div class="@if($errors->updatePenerimaan->has('konfirmasi') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
-                                                            <div class="form-check">
-                                                                <input type="hidden" name="konfirmasi" value="0" />
-                                                                <input class="form-check-input" type="checkbox" id="konfrimasi" name="konfirmasi" value="1" {{ $pengeluaran->konfirmasi==1 ?  'checked="checked"' : '' }}>
-                                                                <label class="form-check-label" for="flexCheckDefault">
-                                                                Konfirmasi Transaksi
-                                                                </label>
-                                                                @if($errors->updatePenerimaan->has('keterangan') && session('updateId')==$pengeluaran->id)
-                                                                    <p class="text-danger text-xs mt-2">{{$errors->updatePenerimaan->first('konfirmasi')}}</p>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @endif
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Batal</button>
-                                                    <button type="submit" class="btn bg-gradient-dark">Simpan</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                         
-                                        </div>
-                                    </div>
-                                </div>    
-
-                              <tr>
-                                  <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->akun->no_akun }} - {{ $pengeluaran->akun->nama_akun }}</p>
-                                  </td>
-                                  <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($pengeluaran->jumlah, 0, ',', '.') ? number_format($pengeluaran->jumlah, 0, ',', '.') : ' - ' }} </p>
-                                </td>
-                                <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->keterangan }}</p>
-                                </td>
-                                <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0 {{ $pengeluaran->konfirmasi==1 ? 'text-success': 'text-danger' }}">{{ $pengeluaran->konfirmasi==1 ? 'Accepted': 'Not Accepted' }}</p>
-                                </td>
-                                <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('d M Y')}}</p>
-                                </td>
-                                <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d M Y')}}</p>
-                                </td>
-                                <td class="text-center">
-                                    <button type="button" class="btn p-0 m-0 btn-link" data-bs-toggle="modal" data-bs-target="#updatePenerimaanModal{{ $pengeluaran->id }}">
-                                        <i class="fas fa-user-edit fa-lg text-secondary"></i>
-                                    </button>
-                                    <span>
-                                        <form style="display: inline" action="{{ route('penerimaan-destroy.kas',['transaksi' => $pengeluaran->id]) }}" method="POST">
-                                            @method('delete')
-                                            @csrf
-                                            <button type="submit" class="btn p-0 m-0 btn-link"><i class="cursor-pointer fas fa-trash fa-lg text-secondary"></i></button>
-                                        </form> 
-                                    </span>
-                                </td>
-                              </tr>
-                            @endforeach
+                                            <span>
+                                                <form style="display: inline" action="{{ route('penerimaan-destroy.kas',['transaksi' => $pengeluaran->id]) }}" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button type="submit" class="btn p-0 m-0 btn-link"><i class="cursor-pointer fas fa-trash fa-lg text-secondary"></i></button>
+                                                </form> 
+                                            </span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @endif 
                           </tbody>
                       </table>
                   </div>

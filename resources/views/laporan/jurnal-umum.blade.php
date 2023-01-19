@@ -127,12 +127,11 @@
                     <div>
                         <h5 class="mb-0">{{__('common.laporan_jurnal_umum')}}</h5>
                     </div>
-                    <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addJurnalModal">
-                        +&nbsp; {{__('common.tambah_laporan_jurnal_umum')}}
-                    </button>
+                    <a href="{{route('pdf.jurnal')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
+
                 </div>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-2">
                 <div class="table-responsive p-0">
                     <table class="table align-items-center mb-0">
                         <thead>

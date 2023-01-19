@@ -7,14 +7,26 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Transaksi;
 use App\Models\NoAkun;
+use DB;
 
 class PengeluaranKasController extends Controller
 {
     public function index(Request $request){
-        $Pengeluarans=Transaksi::where('akun_types','pengeluaran')->orderBy('tgl_transaksi', 'desc')->get();
-        // $Akuns=NoAkun::where('akun_types','pengeluaran')->get();
+
+        $cari = $request->cari;
+        
+        $PengeluaranCari=DB::table('transaksis'
+        )->where('keterangan','like',"%".$cari."%")
+        ->where('akun_types','pengeluaran')
+        ->orderBy('tgl_transaksi', 'desc')->paginate();
+
+        $Pengeluarans=Transaksi::where('akun_types','pengeluaran')
+        ->where('keterangan','like',"%".$cari."%")
+        ->orderBy('tgl_transaksi', 'desc')->get();
         $Akuns=NoAkun::all();
-        return view('kas/pengeluaran-kas',compact('Pengeluarans','Akuns'));
+
+        return view('kas/pengeluaran-kas',compact('PengeluaranCari','Pengeluarans','Akuns'));
+
     }
 
     public function store(Request $request){

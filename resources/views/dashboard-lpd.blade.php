@@ -15,14 +15,14 @@
       </div>
     </div>
     <div class="row mt-4">  
-    <div class="col-lg-6 mb-lg-0 mb-4">
+    <div class="col-lg-6">
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6>Pendapatan</h6>
-          <p class="text-sm">
+          <!-- <p class="text-sm">
             <i class="fa fa-arrow-up text-success"></i>
             <span class="font-weight-bold">4% more</span> in 2021
-          </p>
+          </p> -->
         </div>
         <div class="card-body p-3">
           <div class="chart">
@@ -36,10 +36,10 @@
       <div class="card z-index-2">
         <div class="card-header pb-0">
           <h6>Pengeluaran</h6>
-          <p class="text-sm">
+          <!-- <p class="text-sm">
             <i class="fa fa-arrow-up text-success"></i>
             <span class="font-weight-bold">4% more</span> in 2021
-          </p>
+          </p> -->
         </div>
         <div class="card-body p-3">
           <div class="chart">
@@ -91,7 +91,7 @@
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#cb0c9f",
+              borderColor: "#cb0c35",
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
@@ -125,9 +125,9 @@
               ticks: {
                 display: true,
                 padding: 10,
-                color: '#b2b9bf',
+                color: '#0f0f0f',
                 font: {
-                  size: 11,
+                  size: 12,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2
@@ -144,10 +144,10 @@
               },
               ticks: {
                 display: true,
-                color: '#b2b9bf',
+                color: '#0f0f0f',
                 padding: 20,
                 font: {
-                  size: 11,
+                  size: 12,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2
@@ -194,7 +194,7 @@
               tension: 0.4,
               borderWidth: 0,
               pointRadius: 0,
-              borderColor: "#3A416F",
+              borderColor: "#46ab2b",
               borderWidth: 3,
               backgroundColor: gradientStroke1,
               fill: true,
@@ -228,9 +228,9 @@
               ticks: {
                 display: true,
                 padding: 10,
-                color: '#b2b9bf',
+                color: '#0f0f0f',
                 font: {
-                  size: 11,
+                  size: 12,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2
@@ -247,10 +247,10 @@
               },
               ticks: {
                 display: true,
-                color: '#b2b9bf',
+                color: '#0f0f0f',
                 padding: 20,
                 font: {
-                  size: 11,
+                  size: 12,
                   family: "Open Sans",
                   style: 'normal',
                   lineHeight: 2

@@ -28,7 +28,7 @@
                   <div class="row">
                       <div class="col-md-12">
                         <div class="form-group">
-                            <label for="no_akun_id">Role</label>
+                            <label for="no_akun_id">Akun</label>
                             <div class="@error('no_akun_id','addPengeluaran')border border-danger rounded-3 @enderror">
                             
                             <select class="form-control" id="no_akun_id" name="no_akun_id">
@@ -79,7 +79,7 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="akun_types">Role</label>
+                            <label for="akun_types">Akun</label>
                             <div class="@error('akun_types','addPengeluaran')border border-danger rounded-3 @enderror">
                             <select class="form-control" id="addPengeluaran" name="akun_types">
                                 <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option>
@@ -153,43 +153,60 @@
           <div class="card mb-4 mx-4">
               <div class="card-header pb-0">
                   <div class="d-flex flex-row justify-content-between">
-                      <div>
+                        <div>
                           <h5 class="mb-0">{{__('pengeluaran.all_pengeluaran')}}</h5>
-                      </div>
-                      <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPengeluaranModal">
-                          +&nbsp; {{__('pengeluaran.add_pengeluaran')}}
-                      </button>
+                        </div>
+                        <form action="{{ route('pengeluaran.kas') }}" method="GET">
+                            <div class="form-group">
+                                <div class="input-group mb-4">
+                                    <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                    <input class="form-control" type="text" name="cari" placeholder="Cari.." value="{{ old('cari') }}">
+                                    <input class="btn bg-gradient-dark btn-sm mb-0" type="submit" value="CARI">
+                                </div>
+                            </div>
+                        </form>
+                        <span>
+                            <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPengeluaranModal">
+                                +&nbsp; {{__('pengeluaran.add_pengeluaran')}}
+                            </button>
+                        </span>
                   </div>
               </div>
-              <div class="card-body px-0 pt-0 pb-2">
+              <div class="card-body pt-2">
                   <div class="table-responsive p-0">
                       <table class="table align-items-center mb-0">
                           <thead>
                               <tr>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Nomor Akun
                                   </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Jumlah
-                                        </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Keterangan
                                   </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Jumlah
+                                        </th>
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Status
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Transaksi
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                     Tanggal Input
                                 </th>
-                                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                       Action
                                   </th>
                               </tr>
                           </thead>
                           <tbody>
+                            @php
+                                $datas = $Pengeluarans->count();
+                            @endphp
+                            @if( $datas < 1)
+                                <h1>No Data</h1>
+                            @else
                             @foreach ($Pengeluarans as $pengeluaran)
                                 
                             <!-- Modal -->
@@ -218,7 +235,7 @@
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="no_akun_id">Role</label>
+                                                            <label for="no_akun_id">Akun</label>
                                                             <div class="@if($errors->updatePengeluaran->has('no_akun_id') && session('updateId')==$pengeluaran->id)border border-danger rounded-3 @endif">
                                                             
                                                             <select class="form-control" id="no_akun_id" name="no_akun_id">
@@ -268,7 +285,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="akun_types">Role</label>
+                                                            <label for="akun_types">Akun</label>
                                                             <div class="@error('akun_types','addAkun')border border-danger rounded-3 @enderror">
                                                             <select class="form-control" id="akun_types" name="akun_types" readonly>
                                                                  <option value="pengeluaran" @if($errors->addAkun->any()) {{ old('akun_types')=='pengeluaran' ? 'selected' : '' }} @endif>Pengeluaran</option>
@@ -311,25 +328,25 @@
                                 </div>    
 
                               <tr>
-                                  <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->akun->no_akun }} - {{ $pengeluaran->akun->nama_akun }}</p>
-                                  </td>
-                                  <td class="text-center">
-                                    <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($pengeluaran->jumlah, 0, ',', '.') ? number_format($pengeluaran->jumlah, 0, ',', '.') : ' - ' }} </p>
+                                <td class="text-left">
+                                    <p class="text-xs font-weight-bold mb-0">{{$pengeluaran->akun->no_akun}} - {{$pengeluaran->akun->nama_akun}} </p>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-left">
                                     <p class="text-xs font-weight-bold mb-0">{{ $pengeluaran->keterangan }}</p>
                                 </td>
-                                <td class="text-center">
+                                  <td class="text-left">
+                                    <p class="text-xs font-weight-bold mb-0">Rp. {{ number_format($pengeluaran->jumlah, 0, ',', '.') ? number_format($pengeluaran->jumlah, 0, ',', '.') : ' - ' }} </p>
+                                </td>
+                                <td class="text-left">
                                     <p class="text-xs font-weight-bold mb-0 {{ $pengeluaran->konfirmasi==1 ? 'text-success': 'text-danger' }}">{{ $pengeluaran->konfirmasi==1 ? 'Accepted': 'Not Accepted' }}</p>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-left">
                                     <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->tgl_transaksi)->format('d M Y')}}</p>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-left">
                                     <p class="text-xs font-weight-bold mb-0">{{ \Carbon\Carbon::parse($pengeluaran->created_at)->format('d M Y')}}</p>
                                 </td>
-                                <td class="text-center">
+                                <td class="text-left">
                                     <button type="button" class="btn p-0 m-0 btn-link" data-bs-toggle="modal" data-bs-target="#updatePengeluaranModal{{ $pengeluaran->id }}">
                                         <i class="fas fa-user-edit fa-lg text-secondary"></i>
                                     </button>
@@ -343,6 +360,7 @@
                                 </td>
                               </tr>
                             @endforeach
+                            @endif
                           </tbody>
                       </table>
                   </div>

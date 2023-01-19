@@ -33,7 +33,7 @@ class TransaksiSeeder extends Seeder
 
         DB::table('no_akuns')->insert([
             'nama_akun'=>'Ongkos Administasi',
-            'no_akun'=>301
+            'no_akun'=>302
         ]);
 
         // Aktiva
@@ -388,6 +388,10 @@ class TransaksiSeeder extends Seeder
         DB::table('no_akuns')->insert([
             'nama_akun'=>'Aktiva Lain lain',
             'no_akun'=>231
+        ]);
+        DB::table('no_akuns')->insert([
+            'nama_akun'=>'Prive',
+            'no_akun'=>301
         ]);
     }
 }

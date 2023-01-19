@@ -12,12 +12,11 @@
                   <div>
                       <h5 class="mb-0">Perubahan Modal</h5>
                   </div>
-                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
-                      +&nbsp; Cetak Laporan
-                  </button>
+                  <a href="{{route('pdf.modal')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
+
               </div>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
@@ -32,7 +31,7 @@
                         <p class="text-xs font-weight-bold mb-0">Modal Awal</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. 100.000.000</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($modalAwal)}}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0">   </p>
@@ -44,7 +43,7 @@
                         <p class="text-xs font-weight-bold mb-0">Laba Bersih</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. 20.000.000</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($labaBersih)}}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0">   </p>
@@ -59,7 +58,7 @@
                         <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. 120.000.000</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($total)}}</p>
                       </td>
                     </tr>
 
@@ -68,7 +67,7 @@
                         <p class="text-xs font-weight-bold mb-0">Prive</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. 500.000</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($totalPrive)}}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0">   </p>
@@ -83,7 +82,7 @@
                         <p class="text-xs font-weight-bold mb-0">   </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. 115.000.000</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{rupiah($modalAkhir)}}</p>
                       </td>
                     </tr>
                   </tbody>

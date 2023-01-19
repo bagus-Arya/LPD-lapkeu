@@ -5,19 +5,119 @@
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <div class="container-fluid py-4">
       <div class="row">
+      <!-- Set tanggal saldo awal -->
+      <div class="col-6">
+          @if(session('successSetTanggal'))
+            <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                <span class="alert-text text-white">
+                {{ session('successSetTanggal') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+          @endif
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <div class="d-flex flex-row justify-content-between">
+                <div>
+                  <h5 class="mb-0"> Tanggal Transaksi Saldo Awal</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-2">
+              <form action="{{ route('set.tanggal') }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                  <label for="tgl_start">Start</label>
+                  <div class="border border-info rounded-3">
+                      <input name="start" class="form-control datepickers" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tgl_end">End</label>
+                  <div class="border border-info rounded-3">
+                      <input name="end" class="form-control datepickers" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                  <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+                </div>
+              </form>
+              <div>
+              @foreach ($daterange as $dateset)
+                <a href=""><b>Periode : </b></a>
+                <a href="">{{ \Carbon\Carbon::parse($dateset->start)->format('d/m/Y')}}</a>
+                <a href=""> - {{ \Carbon\Carbon::parse($dateset->end)->format('d/m/Y')}}</a>
+              @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- Set tanggal mutasi -->
+      <div class="col-6">
+          @if(session('successSetTanggalMutasi'))
+            <div class="m-3  alert alert-success alert-dismissible fade show" id="alert-success" role="alert">
+                <span class="alert-text text-white">
+                {{ session('successSetTanggalMutasi') }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+          @endif
+          <div class="card mb-4">
+            <div class="card-header pb-0">
+              <div class="d-flex flex-row justify-content-between">
+                <div>
+                  <h5 class="mb-0"> Tanggal Transaksi Mutasi</h5>
+                </div>
+              </div>
+            </div>
+            <div class="card-body pt-2">
+              <form action="{{ route('tanggal.mutasi') }}" method="POST">
+                @csrf
+                @method('PUT')
+                <div class="form-group">
+                  <label for="tgl_start">Start</label>
+                  <div class="border border-info rounded-3">
+                      <input name="start_mutasi" class="form-control datepickers" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="tgl_end">End</label>
+                  <div class="border border-info rounded-3">
+                      <input name="end_mutasi" class="form-control datepickers" placeholder="Pilih Tanggal Transaksi" type="date" onfocus="focused(this)" onfocusout="defocused(this)">
+                  </div>
+                </div>
+                <div class="d-flex justify-content-end mb-4">
+                  <button type="submit" class="btn bg-gradient-dark">Simpan</button>
+                </div>
+              </form>
+              <div>
+              @foreach ($daterange as $dateset)
+                <a href=""><b>Periode : </b></a>
+                <a href="">{{ \Carbon\Carbon::parse($dateset->start_mutasi)->format('d/m/Y')}}</a>
+                <a href=""> - {{ \Carbon\Carbon::parse($dateset->end_mutasi)->format('d/m/Y')}}</a>
+              @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian laporan -->
+      <div class="row">
         <div class="col-12">
           <div class="card mb-4">
             <div class="card-header pb-0">
               <div class="d-flex flex-row justify-content-between">
-                  <div>
-                      <h5 class="mb-0">Neraca Percobaan</h5>
-                  </div>
-                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
-                      +&nbsp; Cetak Laporan
-                  </button>
+                <div>
+                    <h5 class="mb-0">Neraca Percobaan</h5>
+                </div>
+                <a href="{{route('show.pdf')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
               </div>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
@@ -737,54 +837,6 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Rugi/Laba thn berjalan</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">R/L th.lalu blm dibagi</p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                      <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td class="ps-4">
                         <p class="text-xs font-weight-bold mb-0">Pendapatan bunga dari</p>
                       </td>
                       <td class="text-center">
@@ -905,7 +957,7 @@
 
                     <tr>
                       <td class="ps-4">
-                        <p class="text-xs font-weight-bold mb-0">Biaya bunga</p>
+                        <p class="text-xs font-weight-bold mb-0">Biaya Bunga</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0">   </p>
@@ -1025,6 +1077,30 @@
 
                     <tr>
                       <td class="ps-4">
+                        <p class="text-xs font-weight-bold mb-0">Biaya Kantor</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> Rp. {{ rupiah($SumBiayaKantorAWDebet) }}</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBiayaKantorDebet) }}</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumBiayaKantorAWDebet+$MutasiBiayaKantorDebet ) }}</p>
+                      </td>
+                      <td class="text-center">
+                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td class="ps-4">
                         <p class="text-xs font-weight-bold mb-0">Biaya Perjalanan</p>
                       </td>
                       <td class="text-center">
@@ -1100,19 +1176,19 @@
                         <p class="text-xs font-weight-bold mb-0">Biaya Lain-lain</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumBiayaLainAWDebet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($BiayaLainAK_Debet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($MutasiBPDTabunganDebet) }}</p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($SumBiayaLainAWDebet+$BiayaLainAK_Debet) }}</p>
                       </td>
                       <td class="text-center">
                         <p class="text-xs font-weight-bold mb-0"> - </p>

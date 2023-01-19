@@ -12,12 +12,11 @@
                   <div>
                       <h5 class="mb-0">Aktiva</h5>
                   </div>
-                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
-                      +&nbsp; Cetak Laporan
-                  </button>
+                  <a href="{{route('pdf.aktiva')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
+
               </div>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
@@ -60,7 +59,7 @@
                         <p class="text-xs font-weight-bold mb-0">131</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalGiro) }}</p>
                       </td>
                     </tr>
 
@@ -72,7 +71,7 @@
                         <p class="text-xs font-weight-bold mb-0">131</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalTabungan) }}</p>
                       </td>
                     </tr>
 
@@ -84,7 +83,7 @@
                         <p class="text-xs font-weight-bold mb-0">131</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalDeposito) }}</p>
                       </td>
                     </tr>
 
@@ -108,7 +107,7 @@
                         <p class="text-xs font-weight-bold mb-0">172</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPinjamanDiberikan) }}</p>
                       </td>
                     </tr>
 
@@ -120,7 +119,7 @@
                         <p class="text-xs font-weight-bold mb-0">211</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPiutangRagu) }}</p>
                       </td>
                     </tr>
                     
@@ -144,7 +143,7 @@
                         <p class="text-xs font-weight-bold mb-0">212</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalHargaPerolehan) }}</p>
                       </td>
                     </tr>
 
@@ -156,7 +155,7 @@
                         <p class="text-xs font-weight-bold mb-0">212</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalAkumulasiPenyusutan) }}</p>
                       </td>
                     </tr>
 
@@ -168,7 +167,7 @@
                         <p class="text-xs font-weight-bold mb-0"> 230 </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalRupaRupa) }}</p>
                       </td>
                     </tr>
 
@@ -180,7 +179,7 @@
                         <p class="text-xs font-weight-bold mb-0"> 290 </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalAktiva) }}</p>
                       </td>
                     </tr>
                   </tbody>
@@ -199,12 +198,11 @@
                   <div>
                       <h5 class="mb-0">Pasiva</h5>
                   </div>
-                  <button type="button" class="btn bg-gradient-dark btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#addPenerimaanModal">
-                      +&nbsp; Cetak Laporan
-                  </button>
+                  <a href="{{route('pdf.pasiva')}}" type="button" class="btn bg-gradient-dark btn-sm mb-0"> +&nbsp;Cetak Laporan</a>
+
               </div>
             </div>
-            <div class="card-body px-0 pt-0 pb-2">
+            <div class="card-body pt-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center mb-0" cellpadding="10px">
                   <thead>
@@ -223,7 +221,7 @@
                         <p class="text-xs font-weight-bold mb-0">320</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPTabungan) }}</p>
                       </td>
                     </tr>
 
@@ -235,7 +233,7 @@
                         <p class="text-xs font-weight-bold mb-0"> 330 </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPSimpananBerjangka) }}</p>
                       </td>
                     </tr>
 
@@ -247,7 +245,7 @@
                         <p class="text-xs font-weight-bold mb-0">350</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">-</p>
                       </td>
                     </tr>
 
@@ -259,7 +257,7 @@
                         <p class="text-xs font-weight-bold mb-0">369</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPPinjamanDiterima) }}</p>
                       </td>
                     </tr>
 
@@ -271,7 +269,7 @@
                         <p class="text-xs font-weight-bold mb-0">400</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPRupaPasiva) }}</p>
                       </td>
                     </tr>
 
@@ -295,7 +293,7 @@
                         <p class="text-xs font-weight-bold mb-0">421</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPModalDisetor) }}</p>
                       </td>
                     </tr>
 
@@ -307,7 +305,7 @@
                         <p class="text-xs font-weight-bold mb-0">430</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPCadanganUmum) }}</p>
                       </td>
                     </tr>
                     
@@ -331,7 +329,7 @@
                         <p class="text-xs font-weight-bold mb-0">441</p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPLaba) }}</p>
                       </td>
                     </tr>
 
@@ -355,7 +353,7 @@
                         <p class="text-xs font-weight-bold mb-0"> 490 </p>
                       </td>
                       <td class="text-center">
-                        <p class="text-xs font-weight-bold mb-0"> - </p>
+                        <p class="text-xs font-weight-bold mb-0">Rp. {{ rupiah($totalPasiva) }} </p>
                       </td>
                     </tr>
                   </tbody>

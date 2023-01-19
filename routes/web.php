@@ -40,22 +40,25 @@ Route::group(['middleware' => 'auth'], function () {
 
 		// Route::get('jurnal-umum', [JurnalUmumController::class,'index'])->name('jurnal.umum');
 		
-		Route::get('arus-kas', function () {
-			return view('laporan/arus-kas');
-		})->name('arus.kas');
-
+		Route::get('arus-kas', [NeracaPercobaanController::class,'aruskas'])->name('arus.kas');
+		
 		Route::get('laba-rugi', [NeracaPercobaanController::class,'labarugi'])->name('laba.rugis');
 		
-		Route::get('perubahan-modal', function () {
-			return view('laporan/perubahan-modal');
-		})->name('perubahan.modal');
+		Route::get('perubahan-modal', [NeracaPercobaanController::class,'perubahanmodal'])->name('perubahan.modal');
 		
 		Route::get('neraca', [NeracaPercobaanController::class,'neracabulanan'])->name('neraca.bulanan');
 
 	});
 	
+	// Setting tanggal transaksi
+	Route::put('set-tanggal',[NeracaPercobaanController::class,'setTanggal'])->name('set.tanggal');
+	Route::put('tanggal-mutasi',[NeracaPercobaanController::class,'setTanggalMutasi'])->name('tanggal.mutasi');
+	
 	// Akun
 	Route::get('akun',[AkunController::class,'index'])->name('akun');
+	Route::post('akun',[AkunController::class,'store'])->name('akun-store');
+	// Route::delete('akun/{akun}',[AkunController::class,'destroy'])->name('akun-delete');
+	Route::put('akun/{akun}',[AkunController::class,'update'])->name('akun-update');
 
 	Route::get('pengeluaran-kas', [PengeluaranKasController::class,'index'])->name('pengeluaran.kas');
 	Route::post('pengeluaran-kas', [PengeluaranKasController::class,'store'])->name('pengeluaran-store.kas');
@@ -163,23 +166,26 @@ Route::group(['middleware' => ['auth','admincheck'],'prefix'=>'admin/dashboard',
 
 Route::group(['middleware' => ['auth','ketuacheck'],'prefix'=>'ketua/dashboard','as'=>'ketua.'],function(){
 	Route::get('/', function (){
-		return view('dashboard-lpd');
+		return view('dashboard-new');
 	});
 });
 
 Route::group(['middleware' => ['auth','sekretarischeck'],'prefix'=>'sekretaris/dashboard','as'=>'sekretaris.'],function(){
 	Route::get('/', function (){
-		return view('dashboard-lpd');
+		return view('dashboard-new');
 	});
 });
 
 Route::group(['middleware' => ['auth','bendaharacheck'],'prefix'=>'bendahara/dashboard','as'=>'bendahara.'],function(){
-	Route::get('/', function (){
-		return view('dashboard-lpd');
-	});
+	Route::get('/', [HomeController::class, 'home']);
 });
 
-
+Route::get('/show_pdf', [NeracaPercobaanController::class, 'showPDF'])->name('show.pdf');
+Route::get('/show_pdfaktiva', [NeracaPercobaanController::class, 'pdfaktiva'])->name('pdf.aktiva');
+Route::get('/show_pdfkas', [NeracaPercobaanController::class, 'pdfkas'])->name('pdf.kas');
+Route::get('/show_pdflaba', [NeracaPercobaanController::class, 'pdflaba'])->name('pdf.laba');
+Route::get('/show_pdfmodal', [NeracaPercobaanController::class, 'pdfmodal'])->name('pdf.modal');
+Route::get('/show_pdfpasiva', [NeracaPercobaanController::class, 'pdfpasiva'])->name('pdf.pasiva');
 
 Route::get('/login', function () {
     return view('session/login-session');
